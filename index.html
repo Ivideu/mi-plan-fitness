@@ -3,77 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan 4 Semanas - Definición & Salud</title>
+    <title>Plan Transformación 4 Semanas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body { background-color: #0f172a; color: #f1f5f9; font-family: 'Inter', sans-serif; }
         .tab-content { display: none; }
         .tab-content.active { display: block; }
-        .card { background: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; }
-        .img-placeholder { width: 100%; height: 150px; object-fit: cover; background: #334155; }
+        .card { background: #1e293b; border-radius: 12px; overflow: hidden; border: 1px solid #334155; margin-bottom: 1rem; }
+        .img-header { width: 100%; height: 180px; object-fit: cover; }
         input[type="checkbox"]:checked + label { text-decoration: line-through; color: #94a3b8; }
+        .day-box { background: #334155; padding: 10px; border-radius: 8px; margin-top: 10px; }
     </style>
 </head>
-<body class="p-4">
-    <div class="max-w-2xl mx-auto">
+<body class="p-4 bg-slate-900">
+    <div class="max-w-3xl mx-auto">
         <header class="text-center py-6">
-            <h1 class="text-3xl font-extrabold text-green-400">PLAN DE DEFINICIÓN</h1>
-            <p class="text-slate-400 italic">44 años | 90kg | Control Glucémico</p>
+            <h1 class="text-4xl font-extrabold text-green-400">PLAN 4 SEMANAS</h1>
+            <p class="text-slate-400">Pectoral, Espalda, Bíceps | Control Diabetes | 90kg</p>
         </header>
 
         <!-- Selector de Semanas -->
-        <div class="flex justify-between mb-6 bg-slate-800 p-1 rounded-lg">
-            <button onclick="openTab(event, 'Semana1')" class="tab-link flex-1 py-2 rounded-md bg-green-600 text-white">S1</button>
-            <button onclick="openTab(event, 'Semana2')" class="tab-link flex-1 py-2 rounded-md">S2</button>
-            <button onclick="openTab(event, 'Semana3')" class="tab-link flex-1 py-2 rounded-md">S3</button>
-            <button onclick="openTab(event, 'Semana4')" class="tab-link flex-1 py-2 rounded-md">S4</button>
+        <div class="flex justify-between mb-8 bg-slate-800 p-1 rounded-xl shadow-lg">
+            <button onclick="openTab(event, 'S1')" class="tab-link flex-1 py-3 rounded-lg bg-green-600 font-bold text-white">S1</button>
+            <button onclick="openTab(event, 'S2')" class="tab-link flex-1 py-3 rounded-lg font-bold">S2</button>
+            <button onclick="openTab(event, 'S3')" class="tab-link flex-1 py-3 rounded-lg font-bold">S3</button>
+            <button onclick="openTab(event, 'S4')" class="tab-link flex-1 py-3 rounded-lg font-bold">S4</button>
         </div>
 
-        <!-- Contenido Semana 1 -->
-        <div id="Semana1" class="tab-content active space-y-6">
+        <!-- Contenido Semana 1 (Se replica para las demás) -->
+        <div id="S1" class="tab-content active">
+            <!-- BLOQUE ENTRENAMIENTO -->
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1581009146145-b5ef03a7403f?auto=format&fit=crop&w=800&q=80" alt="Pecho" class="img-placeholder">
-                <div class="p-4">
-                    <h2 class="text-xl font-bold text-blue-400 mb-3">🏋️ Entrenamiento: Torso & Rodillas</h2>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-e1" class="w-5 h-5"><label for="s1-e1">Press Pecho + Aperturas (4x12)</label>
+                <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&q=80" class="img-header" alt="Gimnasio">
+                <div class="p-5">
+                    <h2 class="text-2xl font-bold text-blue-400 mb-4">🏋️ Rutina Semanal (6:00 - 7:00 AM)</h2>
+                    
+                    <div class="space-y-4">
+                        <div class="day-box">
+                            <h3 class="font-bold text-yellow-400">LUNES A VIERNES (Gimnasio)</h3>
+                            <ul class="mt-2 space-y-2">
+                                <li class="flex items-center gap-3">
+                                    <input type="checkbox" id="s1-e1" class="w-5 h-5"><label for="s1-e1">Pecho: Press + Aperturas (4x12)</label>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <input type="checkbox" id="s1-e2" class="w-5 h-5"><label for="s1-e2">Espalda: Jalón + Remo (4x10)</label>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <input type="checkbox" id="s1-e3" class="w-5 h-5"><label for="s1-e3">Bíceps: Curl Barra + Martillo (3x12)</label>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <input type="checkbox" id="s1-e4" class="w-5 h-5"><label for="s1-e4">Abdominales: Plancha (4x45s)</label>
+                                </li>
+                                <li class="flex items-center gap-2 text-xs text-red-300">⚠️ Protección Rodilla: Extensión suave 3x15</li>
+                            </ul>
+                        </div>
+
+                        <div class="day-box border-l-4 border-green-500">
+                            <h3 class="font-bold text-green-400">SÁBADO Y DOMINGO</h3>
+                            <ul class="mt-2">
+                                <li class="flex items-center gap-3">
+                                    <input type="checkbox" id="s1-e5" class="w-5 h-5"><label for="s1-e5">Caminar 1 hora a ritmo rápido[cite: 4]</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOQUE NUTRICIÓN -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=800&q=80" class="img-header" alt="Comida">
+                <div class="p-5">
+                    <h2 class="text-2xl font-bold text-green-400 mb-4">🥗 Alimentación Diaria</h2>
+                    <ul class="space-y-3">
+                        <li class="p-3 bg-slate-800 rounded-lg">
+                            <input type="checkbox" id="s1-d1" class="w-5 h-5 mr-2">
+                            <label for="s1-d1">☕ <b>Desayuno:</b> Café con Leche + Tostada Centeno/Pavo[cite: 4]</label>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-e2" class="w-5 h-5"><label for="s1-e2">Jalón al pecho + Remo (4x10)</label>
+                        <li class="p-3 bg-slate-800 rounded-lg">
+                            <input type="checkbox" id="s1-d2" class="w-5 h-5 mr-2">
+                            <label for="s1-d2">🍗 <b>Comida:</b> Proteína + Verdura + 40g Arroz Integral[cite: 4]</label>
                         </li>
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-e3" class="w-5 h-5"><label for="s1-e3">Curl Bíceps Barra + Martillo (3x12)</label>
-                        </li>
-                        <li class="flex items-center gap-3 text-yellow-400">
-                            <input type="checkbox" id="s1-e4" class="w-5 h-5"><label for="s1-e4">Extensión Rodillas (Carga Baja)</label>
+                        <li class="p-3 bg-slate-800 rounded-lg">
+                            <input type="checkbox" id="s1-d3" class="w-5 h-5 mr-2">
+                            <label for="s1-d3">🐟 <b>Cena:</b> Pescado + Ensalada + 1/2 Aguacate[cite: 4]</label>
                         </li>
                     </ul>
                 </div>
             </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=80" alt="Comida" class="img-placeholder">
-                <div class="p-4">
-                    <h2 class="text-xl font-bold text-green-400 mb-3">🥗 Nutrición Mercadona</h2>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-d1" class="w-5 h-5"><label for="s1-d1">☕ Café con Leche + Tostada Centeno[cite: 4]</label>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-d2" class="w-5 h-5"><label for="s1-d2">🍗 Pollo + Brócoli + 40g Arroz Integral[cite: 4]</label>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <input type="checkbox" id="s1-d3" class="w-5 h-5"><label for="s1-d3">🐟 Merluza + Ensalada + 1/2 Aguacate[cite: 4]</label>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
-        <!-- (Se repiten estructuras similares para S2, S3, S4 con progresión de carga) -->
-        <div id="Semana2" class="tab-content space-y-6 text-center py-20">
-            <p class="text-slate-400">Progreso: Aumenta el peso en Pecho y Espalda un 5%[cite: 4].</p>
+        <!-- NOTA DE COMPRA -->
+        <div class="p-4 bg-green-900/30 border border-green-500/50 rounded-xl mb-10">
+            <h4 class="font-bold text-green-400">🛒 Lista Mercadona:</h4>
+            <p class="text-xs text-slate-300">Leche +Proteína, Centeno 100%, Pechuga Pollo/Pavo, Merluza, Arroz Integral, Brócoli, Aguacate[cite: 4].</p>
         </div>
     </div>
 
@@ -84,10 +107,10 @@
             for (i = 0; i < tabcontent.length; i++) { tabcontent[i].style.display = "none"; }
             tablinks = document.getElementsByClassName("tab-link");
             for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" bg-green-600 text-white", "");
+                tablinks[i].className = tablinks[i].className.replace(" bg-green-600 text-white shadow-inner", "");
             }
             document.getElementById(tabName).style.display = "block";
-            evt.currentTarget.className += " bg-green-600 text-white";
+            evt.currentTarget.className += " bg-green-600 text-white shadow-inner";
         }
     </script>
 </body>
