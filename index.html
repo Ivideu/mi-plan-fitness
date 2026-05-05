@@ -3,83 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan Tupper Vientre Plano</title>
+    <title>Plan Vientre Plano Interactivo</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #f8fafc; color: #1e293b; font-family: sans-serif; }
-        .card { background: #ffffff; border-radius: 12px; border: 1px solid #e2e8f0; margin-bottom: 1rem; overflow: hidden; }
-        .week-btn.active { background: #10b981; color: white; border-color: #059669; }
-        .tupper-pill { background: #f1f5f9; border-left: 4px solid #3b82f6; padding: 10px; margin-top: 8px; border-radius: 4px; }
-        input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: #10b981; }
+        body { background-color: #f8fafc; color: #1e293b; font-family: 'Segoe UI', sans-serif; }
+        .card { background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); margin-bottom: 1.5rem; overflow: hidden; }
+        input[type="checkbox"] { width: 1.2rem; height: 1.2rem; accent-color: #10b981; cursor: pointer; }
+        input[type="checkbox"]:checked + label { text-decoration: line-through; color: #94a3b8; }
+        .week-btn { border: 2px solid #e2e8f0; transition: all 0.2s; }
+        .week-btn.active { background: #10b981; color: white; border-color: #059669; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); }
+        .section-title { font-weight: 900; text-transform: uppercase; color: #334155; border-left: 4px solid #10b981; padding-left: 12px; margin: 25px 0 15px 0; font-size: 0.9rem; }
     </style>
 </head>
-<body class="p-4">
-    <div class="max-w-3xl mx-auto">
-        <header class="text-center mb-6">
-            <h1 class="text-2xl font-bold text-slate-800">TU PLAN DE TUPPERS (44 AÑOS)</h1>
-            <p class="text-emerald-600 text-xs font-bold uppercase">Plato Único • Control Diabetes • Vientre Plano</p>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-8">
+            <h1 class="text-4xl font-black text-slate-800 tracking-tight">PLAN 4 SEMANAS</h1>
+            <p class="text-emerald-600 font-bold uppercase tracking-widest text-xs mt-2">Vientre Plano • Definición Superior • Control Glucémico</p>
         </header>
 
-        <!-- Selector Semanas -->
-        <div class="flex gap-1 mb-6">
-            <button onclick="changeWeek('S1')" id="btn-S1" class="week-btn active flex-1 py-2 rounded-lg border font-bold text-xs">SEM 1</button>
-            <button onclick="changeWeek('S2')" id="btn-S2" class="week-btn flex-1 py-2 rounded-lg border font-bold text-xs">SEM 2</button>
-            <button onclick="changeWeek('S3')" id="btn-S3" class="week-btn flex-1 py-2 rounded-lg border font-bold text-xs">SEM 3</button>
-            <button onclick="changeWeek('S4')" id="btn-S4" class="week-btn flex-1 py-2 rounded-lg border font-bold text-xs">SEM 4</button>
+        <!-- Selector de Semanas -->
+        <div class="flex gap-2 mb-8 bg-white p-2 rounded-2xl shadow-sm border border-slate-200 sticky top-4 z-10">
+            <button onclick="updateContent('S1')" id="btn-S1" class="week-btn active flex-1 py-3 rounded-xl font-black text-xs">SEMANA 1</button>
+            <button onclick="updateContent('S2')" id="btn-S2" class="week-btn flex-1 py-3 rounded-xl font-black text-xs">SEMANA 2</button>
+            <button onclick="updateContent('S3')" id="btn-S3" class="week-btn flex-1 py-3 rounded-xl font-black text-xs">SEMANA 3</button>
+            <button onclick="updateContent('S4')" id="btn-S4" class="week-btn flex-1 py-3 rounded-xl font-black text-xs">SEMANA 4</button>
         </div>
 
-        <!-- Bloque Abdominales -->
-        <div class="card p-4 border-l-4 border-emerald-500">
-            <h2 class="font-black text-sm mb-3">🔥 ABDOMINALES DIARIOS (VIENTRE PLANO)</h2>
-            <div class="grid grid-cols-1 gap-2 text-xs">
-                <div class="flex items-center gap-2"><input type="checkbox" id="a1"><label for="a1">Plancha Frontal (4 x 45 seg)</label></div>
-                <div class="flex items-center gap-2"><input type="checkbox" id="a2"><label for="a2">Plancha Lateral (3 x 30 seg por lado)</label></div>
-                <div class="flex items-center gap-2"><input type="checkbox" id="a3"><label for="a3">Vacuum (5 repeticiones): Mete ombligo fuerte</label></div>
+        <div id="main-content"></div>
+
+        <!-- LISTA COMPRA FIJA -->
+        <div class="card p-6 border-t-4 border-emerald-500 mt-10 mb-20 bg-emerald-50/10">
+            <h3 class="text-lg font-black text-slate-800 mb-4 uppercase"><i class="fa-solid fa-cart-shopping text-emerald-500 mr-2"></i> Imprescindibles Mercadona</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-[11px] font-bold text-slate-500">
+                <p>• LECHE +PROTEÍNAS</p>
+                <p>• PAN CENTENO 100%</p>
+                <p>• CLARAS DE HUEVO</p>
+                <p>• ARROZ INTEGRAL</p>
+                <p>• PESCADO BLANCO/MERLUZA</p>
+                <p>• PECHUGA DE POLLO</p>
+                <p>• GELATINA 0%</p>
+                <p>• ESPÁRRAGOS Y BRÓCOLI</p>
             </div>
         </div>
-
-        <div id="content"></div>
     </div>
 
     <script>
-        const menuS1 = [
-            { d: "Lunes", tupper: "Wok de Pollo con Brócoli y 30g Arroz Integral" },
-            { d: "Martes", tupper: "Lomo Magro salteado con Judías Verdes y Calabacín" },
-            { d: "Miércoles", tupper: "Ensalada de Lentejas con Pavo, Pimiento y Cebolla" },
-            { d: "Jueves", tupper: "Pechuga al Curry con Salteado de Verduras Variadas" },
-            { d: "Viernes", tupper: "Bacalao desmigado con Garbanzos y Espinacas" }
-        ];
+        const weeklyData = {
+            S1: {
+                desc: "Adaptación metabólica",
+                menu: [
+                    { d: "Lunes", des: "Tostada centeno + Pavo", com: "Pollo y brócoli al vapor", cen: "Merluza con espárragos" },
+                    { d: "Martes", des: "Tortilla 2 huevos", com: "Bacalao con ensalada verde", cen: "Wok de pavo y calabacín" },
+                    { d: "Miércoles", des: "Avena con 3 nueces", com: "Lentejas con verduras", cen: "Revuelto de claras y gambas" },
+                    { d: "Jueves", des: "Tostada con aguacate", com: "Lomo magro y pimientos", cen: "Ensalada de atún natural" },
+                    { d: "Viernes", des: "Claras a la plancha", com: "Pollo al limón y quinoa", cen: "Sepia con ensalada mixta" },
+                    { d: "Sábado", des: "Tostada y queso light", com: "Pollo asado con verduras", cen: "Pescado blanco al vapor" },
+                    { d: "Domingo", des: "Huevos revueltos", com: "Garbanzos con espinacas", cen: "Tortilla francesa y tomate" }
+                ]
+            },
+            S2: {
+                desc: "Aceleración de quema de grasa",
+                menu: [
+                    { d: "Lunes", des: "Yogur +Proteína y nueces", com: "Pavo a la plancha con judías", cen: "Sepia con ajo y perejil" },
+                    { d: "Martes", des: "Tostada centeno + Queso", com: "Merluza y calabacín", cen: "Ensalada de pollo y aguacate" },
+                    { d: "Miércoles", des: "Tortilla de claras", com: "Garbanzos con pollo", cen: "Bacalao al horno" },
+                    { d: "Jueves", des: "Avena y canela", com: "Conejo o Pollo con ensalada", cen: "Tortilla de espárragos" },
+                    { d: "Viernes", des: "Tostada + Jamón serrano", com: "Lomo magro y brócoli", cen: "Merluza a la plancha" },
+                    { d: "Sábado", des: "Huevos a la plancha", com: "Lentejas salteadas con gambas", cen: "Pavo con tomate" },
+                    { d: "Domingo", des: "Tostada con pavo", com: "Lentejas ligeras", cen: "Ensalada de ventresca" }
+                ]
+            },
+            S3: { desc: "Definición intensiva", menu: [] },
+            S4: { desc: "Pico de forma", menu: [] } 
+        };
 
-        const menuS2 = [
-            { d: "Lunes", tupper: "Pavo con Quinoa y Pimientos asados" },
-            { d: "Martes", tupper: "Ensalada templada de Judiones con Atún y Tomate" },
-            { d: "Miércoles", tupper: "Tiras de Pollo con Champiñones y Espárragos" },
-            { d: "Jueves", tupper: "Lomo con Puré de Calabaza (bajo IG) y Brócoli" },
-            { d: "Viernes", tupper: "Guiso ligero de Sepia con Guisantes y Verduras" }
-        ];
+        weeklyData.S3.menu = JSON.parse(JSON.stringify(weeklyData.S1.menu)).reverse();
+        weeklyData.S4.menu = JSON.parse(JSON.stringify(weeklyData.S2.menu)).reverse();
 
-        function changeWeek(w) {
+        function updateContent(weekId) {
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-'+w).classList.add('active');
-            
-            const data = (w === 'S1' || w === 'S3') ? menuS1 : menuS2;
-            let html = '<h3 class="font-bold text-slate-700 mb-3 text-sm italic uppercase">Menú de Tuppers Semanal:</h3>';
-            
-            data.forEach(item => {
+            document.getElementById('btn-' + weekId).classList.add('active');
+
+            const data = weeklyData[weekId];
+            let html = `
+                <div class="section-title">🔥 CORE DIARIO: VIENTRE PLANO (TODOS LOS DÍAS)</div>
+                <div class="card p-5 border-l-4 border-emerald-500 bg-emerald-50/30">
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3"><input type="checkbox" id="a1"><label for="a1" class="text-sm"><b>Plancha Frontal:</b> 4 x 45 seg (Aprieta el ombligo fuerte)</label></li>
+                        <li class="flex items-center gap-3"><input type="checkbox" id="a2"><label for="a2" class="text-sm"><b>Plancha Lateral:</b> 3 x 30 seg por lado (Cintura lateral)</label></li>
+                        <li class="flex items-center gap-3"><input type="checkbox" id="a3"><label for="a3" class="text-sm"><b>Vacuum Abdominal:</b> 5 veces (En ayunas o post-entreno)</label></li>
+                    </ul>
+                </div>
+
+                <div class="section-title">🏋️ RUTINA SEMANAL (${data.desc})</div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="card p-5 border-t-4 border-blue-500">
+                        <h3 class="font-black text-blue-600 mb-3 text-xs uppercase">Lunes - Miércoles - Viernes</h3>
+                        <p class="text-xs text-slate-500 mb-3 italic">Foco: Pecho, Espalda y Bíceps + 15' HIIT Elíptica</p>
+                        <div class="flex items-center gap-2 text-xs"><input type="checkbox" id="f1"><label for="f1">Entrenamiento completado</label></div>
+                    </div>
+                    <div class="card p-5 border-t-4 border-orange-500">
+                        <h3 class="font-black text-orange-600 mb-3 text-xs uppercase">Martes - Jueves</h3>
+                        <p class="text-xs text-slate-500 mb-3 italic">Foco: Fuerza de Pierna (Prensa) + 40' Cardio Suave</p>
+                        <div class="flex items-center gap-2 text-xs"><input type="checkbox" id="f2"><label for="f2">Entrenamiento completado</label></div>
+                    </div>
+                </div>
+
+                <div class="section-title">🍲 MENÚ SEMANAL VARIADO</div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            `;
+
+            data.menu.forEach((day, i) => {
                 html += `
                     <div class="card p-4">
-                        <span class="text-[10px] font-black text-emerald-600 uppercase border-b pb-1">${item.d}</span>
-                        <div class="tupper-pill text-xs">
-                            <b>🍱 Plato Único:</b> ${item.tupper}
+                        <div class="font-black text-emerald-600 border-b mb-3 pb-1 text-xs uppercase flex justify-between">
+                            <span>${day.d}</span>
+                            <i class="fa-solid fa-utensils opacity-30"></i>
                         </div>
-                        <p class="text-[10px] text-slate-500 mt-2">Desayuno: Café leche + Tostada centeno • Cena: Pescado/Tortilla + Ensalada</p>
+                        <div class="text-[11px] space-y-2">
+                            <p><b>☕ DESAYUNO:</b> Café leche + ${day.des}</p>
+                            <p><b>🍲 COMIDA:</b> ${day.com}</p>
+                            <p><b>🐟 CENA:</b> ${day.cen}</p>
+                        </div>
+                        <div class="mt-4 flex items-center gap-2">
+                            <input type="checkbox" id="chk-${weekId}-${i}"><label for="chk-${weekId}-${i}" class="text-[9px] font-bold text-slate-400">OBJETIVOS DEL DÍA LOGRADOS</label>
+                        </div>
                     </div>
                 `;
             });
-            document.getElementById('content').innerHTML = html;
+
+            html += `</div>`;
+            document.getElementById('main-content').innerHTML = html;
         }
-        changeWeek('S1');
+
+        updateContent('S1');
     </script>
 </body>
 </html>
