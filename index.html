@@ -3,128 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Plan 4 Semanas: Definición y Diabetes</title>
+    <title>Plan Transformación 4 Semanas</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body { background-color: #0f172a; color: #f1f5f9; font-family: 'Inter', sans-serif; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
-        .card { background: #1e293b; border-radius: 12px; border: 1px solid #334155; margin-bottom: 1.5rem; overflow: hidden; }
+        .card { background: #1e293b; border-radius: 16px; border: 1px solid #334155; overflow: hidden; margin-bottom: 1.5rem; transition: transform 0.2s; }
+        .card:hover { transform: translateY(-2px); }
+        input[type="checkbox"] { width: 1.2rem; height: 1.2rem; cursor: pointer; accent-color: #22c55e; }
         input[type="checkbox"]:checked + label { text-decoration: line-through; color: #64748b; }
-        .week-btn.active { background-color: #22c55e; color: white; border-color: #16a34a; }
-        .img-box { width: 100%; height: 160px; object-fit: cover; }
+        .week-btn.active { background: #22c55e; color: white; border-color: #4ade80; box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); }
+        .diet-badge { background: rgba(34, 197, 94, 0.1); color: #4ade80; padding: 2px 8px; border-radius: 99px; font-size: 0.75rem; font-weight: 700; }
     </style>
 </head>
-<body class="p-4 bg-slate-900">
-    <div class="max-w-3xl mx-auto">
-        <header class="text-center py-6">
-            <h1 class="text-3xl font-bold text-green-400">PROGRAMA DE TRANSFORMACIÓN</h1>
-            <p class="text-slate-400">44 años | 90kg | Pecho, Espalda y Bíceps</p>
+<body class="p-4 md:p-8 bg-slate-900">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center py-8">
+            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500 mb-2">MI TRANSFORMACIÓN</h1>
+            <p class="text-slate-400 font-medium">44 años • 90kg • Control Diabetes</p>
         </header>
 
         <!-- Selector de Semanas -->
-        <div class="flex gap-2 mb-8 bg-slate-800 p-1 rounded-xl shadow-lg border border-slate-700">
-            <button onclick="showWeek('S1')" id="btn-S1" class="week-btn active flex-1 py-3 rounded-lg font-bold border-2 border-transparent transition-all">SEM 1</button>
-            <button onclick="showWeek('S2')" id="btn-S2" class="week-btn flex-1 py-3 rounded-lg font-bold border-2 border-transparent transition-all">SEM 2</button>
-            <button onclick="showWeek('S3')" id="btn-S3" class="week-btn flex-1 py-3 rounded-lg font-bold border-2 border-transparent transition-all">SEM 3</button>
-            <button onclick="showWeek('S4')" id="btn-S4" class="week-btn flex-1 py-3 rounded-lg font-bold border-2 border-transparent transition-all">SEM 4</button>
+        <div class="flex gap-2 mb-10 bg-slate-800 p-1.5 rounded-2xl shadow-2xl border border-slate-700">
+            <button onclick="showWeek('S1')" id="btn-S1" class="week-btn active flex-1 py-4 rounded-xl font-black text-sm transition-all uppercase">Semana 1</button>
+            <button onclick="showWeek('S2')" id="btn-S2" class="week-btn flex-1 py-4 rounded-xl font-black text-sm transition-all uppercase">Semana 2</button>
+            <button onclick="showWeek('S3')" id="btn-S3" class="week-btn flex-1 py-4 rounded-xl font-black text-sm transition-all uppercase">Semana 3</button>
+            <button onclick="showWeek('S4')" id="btn-S4" class="week-btn flex-1 py-4 rounded-xl font-black text-sm transition-all uppercase">Semana 4</button>
         </div>
 
-        <div id="main-content">
-            <!-- El contenido dinámico se inyecta aquí -->
-        </div>
+        <div id="content" class="space-y-6"></div>
 
-        <!-- LISTA DE LA COMPRA FIJA (MERCADONA) -->
-        <div class="card p-6 border-green-500/30 bg-green-900/10 mb-20">
-            <h3 class="text-xl font-bold text-green-400 mb-4 flex items-center gap-2">🛒 Lista de la Compra Mercadona</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-slate-300">
-                <div>
-                    <p class="font-bold text-white mb-1">Proteínas</p>
-                    <p>Pollo, Pavo, Huevos, Claras, Atún, Salmón, Merluza, Sepia.</p>
+        <!-- LISTA COMPRA MERCADONA -->
+        <div class="card p-6 bg-gradient-to-br from-slate-800 to-slate-900 border-green-500/20 mt-10 mb-20">
+            <h3 class="text-xl font-black text-green-400 mb-6 flex items-center gap-3">
+                <i class="fa-solid fa-cart-shopping"></i> CARRITO MERCADONA
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                <div class="space-y-2">
+                    <p class="font-bold text-white border-b border-slate-700 pb-1 italic">Proteínas Limpias</p>
+                    <p class="text-slate-400">Pollo, Pavo, Atún, Salmón, Merluza, Sepia, Huevos y Claras.</p>
                 </div>
-                <div>
-                    <p class="font-bold text-white mb-1">Hidratos y Otros</p>
-                    <p>Pan Centeno 100%, Arroz Integral, Quinoa, Avena, Nueces.</p>
-                </div>
-                <div>
-                    <p class="font-bold text-white mb-1">Vegetales</p>
-                    <p>Brócoli, Espinacas, Espárragos, Calabacín, Aguacates, Tomates.</p>
-                </div>
-                <div>
-                    <p class="font-bold text-white mb-1">Desayuno</p>
-                    <p>Café natural, Leche +Proteínas, Stevia/Eritritol.</p>
+                <div class="space-y-2">
+                    <p class="font-bold text-white border-b border-slate-700 pb-1 italic">Energía (Bajo IG)</p>
+                    <p class="text-slate-400">Pan Centeno 100%, Avena, Arroz Integral, Quinoa, Nueces.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        const plan = {
-            S1: { title: "Semana 1: Adaptación", intensity: "Moderada" },
-            S2: { title: "Semana 2: Progresión", intensity: "Media" },
-            S3: { title: "Semana 3: Definición", intensity: "Alta" },
-            S4: { title: "Semana 4: Pico de Forma", intensity: "Máxima" }
-        };
+        const dietData = [
+            { d: "Lunes", des: "Tostada centeno + Pavo", com: "Pollo + Brócoli + Arroz", cen: "Merluza + Espárragos" },
+            { d: "Martes", des: "Tortilla 2 huevos", com: "Salmón + Canónigos", cen: "Wok pavo + Calabacín" },
+            { d: "Miércoles", des: "Avena (30g) + 3 nueces", com: "Lentejas + Verduras", cen: "Claras + Gambas" },
+            { d: "Jueves", des: "Tostada centeno + Aguacate", com: "Ternera + Pimientos", cen: "Ensalada atún natural" },
+            { d: "Viernes", des: "Claras a la plancha", com: "Pollo limón + Quinoa", cen: "Sepia + Ensalada" },
+            { d: "Sábado", des: "Tostada integral + Queso light", com: "Paella verduras/pollo", cen: "Pescado al vapor" },
+            { d: "Domingo", des: "Huevos revueltos", com: "Garbanzos + Espinacas", cen: "Tortilla + Tomate" }
+        ];
 
-        function showWeek(id) {
+        function showWeek(week) {
             document.querySelectorAll('.week-btn').forEach(b => b.classList.remove('active'));
-            document.getElementById('btn-' + id).classList.add('active');
+            document.getElementById('btn-' + week).classList.add('active');
 
-            const week = plan[id];
-            document.getElementById('main-content').innerHTML = `
-                <div class="animate-fadeIn">
-                    <h2 class="text-2xl font-bold text-blue-400 mb-6">${week.title} (${week.intensity})</h2>
-                    
-                    <!-- ENTRENAMIENTO -->
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?q=80&w=800&auto=format&fit=crop" class="img-box" alt="Gimnasio">
-                        <div class="p-5">
-                            <h3 class="text-lg font-bold text-yellow-400 mb-4">🏋️ Gimnasio (L, M, V - 60 min)</h3>
-                            <ul class="space-y-3">
-                                <li class="flex items-center gap-3"><input type="checkbox" id="e1" class="w-5 h-5"><label for="e1">Movilidad articular Hombros/Brazos (5 min)</label></li>
-                                <li class="flex items-center gap-3"><input type="checkbox" id="e2" class="w-5 h-5"><label for="e2">Pecho: Press (4x10) + Aperturas (3x12)[cite: 5]</label></li>
-                                <li class="flex items-center gap-3"><input type="checkbox" id="e3" class="w-5 h-5"><label for="e3">Espalda: Jalón Pecho (4x10) + Remo (3x12)[cite: 5]</label></li>
-                                <li class="flex items-center gap-3"><input type="checkbox" id="e4" class="w-5 h-5"><label for="e4">Bíceps: Curl Barra (3x12) + Martillo (3x12)[cite: 5]</label></li>
-                                <li class="flex items-center gap-3 text-green-400"><input type="checkbox" id="e5" class="w-5 h-5"><label for="e5">HIIT: 15 min Elíptica (1 min tope/1 min suave)[cite: 5]</label></li>
-                            </ul>
+            let html = `
+                <!-- RUTINA L-M-V -->
+                <div class="card bg-slate-800/50">
+                    <div class="bg-blue-600 p-4 flex justify-between items-center">
+                        <h2 class="font-black text-white uppercase tracking-wider"><i class="fa-solid fa-dumbbell mr-2"></i> Lunes - Miércoles - Viernes</h2>
+                        <span class="text-xs font-bold bg-blue-900/50 px-2 py-1 rounded">TORSO & HIIT</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="e1"><label for="e1" class="text-sm font-medium">Calentamiento Hombros (5 min)[cite: 5]</label>
                         </div>
-                    </div>
-
-                    <!-- PIERNA Y CORE -->
-                    <div class="card p-5 border-l-4 border-orange-500">
-                        <h3 class="text-lg font-bold text-orange-400 mb-4">🦵 Martes y Jueves (Metabolismo)</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3"><input type="checkbox" id="m1" class="w-5 h-5"><label for="m1">40 min Bici/Cinta suave + Prensa Piernas[cite: 5]</label></li>
-                            <li class="flex items-center gap-3"><input type="checkbox" id="m2" class="w-5 h-5"><label for="m2">Planchas Abdominales (4 series)[cite: 5]</label></li>
-                        </ul>
-                    </div>
-
-                    <!-- CAMINATA FIN DE SEMANA -->
-                    <div class="card p-5 border-l-4 border-indigo-500">
-                        <h3 class="text-lg font-bold text-indigo-400 mb-4">🚶 Sábado y Domingo</h3>
-                        <li class="flex items-center gap-3 list-none"><input type="checkbox" id="sd" class="w-5 h-5"><label for="sd">Caminar 1 hora a ritmo rápido (Sin impacto)</label></li>
-                    </div>
-
-                    <!-- ALIMENTACIÓN -->
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?q=80&w=800&auto=format&fit=crop" class="img-box" alt="Nutrición">
-                        <div class="p-5">
-                            <h3 class="text-lg font-bold text-green-400 mb-4">🥗 Nutrición Diaria</h3>
-                            <div class="space-y-4 text-sm">
-                                <p><b>☕ Desayuno Fijo:</b> Café con leche semidesnatada (o +Proteínas) con Stevia/Eritritol[cite: 5].</p>
-                                <ul class="space-y-2 border-t border-slate-700 pt-3">
-                                    <li><b>Lun:</b> Tostada centeno/pavo | Pollo/brócoli/arroz | Merluza/espárragos[cite: 5]</li>
-                                    <li><b>Mar:</b> Tortilla 2 huevos | Salmón/canónigos | Wok pavo/calabacín[cite: 5]</li>
-                                    <li><b>Mié:</b> Avena/nueces | Lentejas/verduras | Revuelto claras/gambas[cite: 5]</li>
-                                </ul>
-                            </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="e2"><label for="e2" class="text-sm font-medium">PECHO: Press Máquina (4x10) + Aperturas (3x12)[cite: 5]</label>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="e3"><label for="e3" class="text-sm font-medium">ESPALDA: Jalón Pecho (4x10) + Remo (3x12)[cite: 5]</label>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="e4"><label for="e4" class="text-sm font-medium">BÍCEPS: Curl Barra (3x12) + Martillo (3x12)[cite: 5]</label>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-green-500/10 border border-green-500/20 rounded-xl">
+                            <input type="checkbox" id="e5"><label for="e5" class="text-sm font-bold text-green-400">HIIT: 15 min Elíptica (1' Máximo / 1' Suave)[cite: 5]</label>
                         </div>
                     </div>
                 </div>
+
+                <!-- RUTINA M-J (FUERZA & CORE) -->
+                <div class="card bg-slate-800/50 border-orange-500/30">
+                    <div class="bg-orange-600 p-4 flex justify-between items-center">
+                        <h2 class="font-black text-white uppercase tracking-wider"><i class="fa-solid fa-person-running mr-2"></i> Martes - Jueves</h2>
+                        <span class="text-xs font-bold bg-orange-900/50 px-2 py-1 rounded">FUERZA PIERNAS & CORE[cite: 5]</span>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="mj1"><label for="mj1" class="text-sm font-medium">Fuerza: Prensa de Piernas (4 series)[cite: 5]</label>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="mj2"><label for="mj2" class="text-sm font-medium">Core: Planchas Abdominales (4 series)[cite: 5]</label>
+                        </div>
+                        <div class="flex items-center gap-4 p-3 bg-slate-900/50 rounded-xl">
+                            <input type="checkbox" id="mj3"><label for="mj3" class="text-sm font-medium font-bold text-orange-400">40 min Bici/Cinta (Ritmo Suave)[cite: 5]</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- NUTRICIÓN DIARIA -->
+                <h3 class="text-2xl font-black text-white mt-10 mb-6 flex items-center gap-3"><i class="fa-solid fa-utensils text-green-400"></i> MENÚ DIARIO</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             `;
+
+            dietData.forEach((day, index) => {
+                html += `
+                    <div class="card bg-slate-800 border-l-4 border-green-500 p-5">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-black uppercase text-green-400 tracking-widest text-lg">${day.d}</span>
+                            <i class="fa-solid fa-calendar-day text-slate-600"></i>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex gap-3 items-start">
+                                <span class="diet-badge">7:15</span>
+                                <p class="text-sm"><b class="text-white">☕ Desayuno:</b> Café leche + ${day.des}[cite: 5]</p>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <span class="diet-badge">14:00</span>
+                                <p class="text-sm"><b class="text-white">🍲 Comida:</b> ${day.com}[cite: 5]</p>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <span class="diet-badge">21:00</span>
+                                <p class="text-sm"><b class="text-white">🐟 Cena:</b> ${day.cen}[cite: 5]</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 flex items-center gap-2">
+                             <input type="checkbox" id="d-${index}" class="rounded">
+                             <label for="d-${index}" class="text-xs font-bold text-slate-500 uppercase">Día Completado</label>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                </div>
+                <!-- FIN DE SEMANA -->
+                <div class="card bg-indigo-900/20 border-indigo-500/40 p-6 mt-6">
+                    <h3 class="font-black text-indigo-400 mb-2 uppercase tracking-tighter italic">Sábado y Domingo: Recuperación Activa</h3>
+                    <p class="text-sm mb-4">Caminar 1 hora a ritmo rápido (Sin impacto articular)[cite: 5].</p>
+                    <div class="flex items-center gap-4">
+                        <input type="checkbox" id="sab"><label for="sab" class="text-xs font-black">Sábado</label>
+                        <input type="checkbox" id="dom"><label for="dom" class="text-xs font-black">Domingo</label>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('content').innerHTML = html;
         }
 
-        // Iniciar en Semana 1
         showWeek('S1');
     </script>
 </body>
