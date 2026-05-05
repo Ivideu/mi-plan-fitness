@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Transformación - 44 años / 90kg</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #0f172a; color: white; }
+        .card { background: #1e293b; border-radius: 15px; padding: 20px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5); }
+        .check-item:checked + label { text-decoration: line-through; color: #94a3b8; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <header class="text-center mb-10">
+            <h1 class="text-4xl font-bold text-green-400 mb-2">MI TRANSFORMACIÓN 4 SEMANAS</h1>
+            <p class="text-slate-400">Objetivo: Vientre Plano & Definición Superior | Control Diabetes</p>
+        </header>
+
+        <!-- DASHBOARD DE SALUD -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+            <div class="card text-center border-b-4 border-blue-500">
+                <p class="text-sm text-slate-400">Peso Inicial</p>
+                <p class="text-2xl font-bold">90.0 kg</p>
+            </div>
+            <div class="card text-center border-b-4 border-green-500">
+                <p class="text-sm text-slate-400">Edad</p>
+                <p class="text-2xl font-bold">44 años</p>
+            </div>
+            <div class="card text-center border-b-4 border-red-500">
+                <p class="text-sm text-slate-400">Condición</p>
+                <p class="text-xl font-bold">Diabetes Ctrl</p>
+            </div>
+        </div>
+
+        <!-- RUTINA DIARIA -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">🏋️ Entreno: Pecho, Espalda y Bíceps (60 min)</h2>
+            <div class="card space-y-4">
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+                    <input type="checkbox" id="ex1" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex1" class="text-lg">06:00 - Movilidad de Hombros y Rodillas</label>
+                </div>
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+                    <input type="checkbox" id="ex2" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex2" class="text-lg">Press de Pecho + Aperturas (4x12)[cite: 4]</label>
+                </div>
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+                    <input type="checkbox" id="ex3" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex3" class="text-lg">Jalón al Pecho + Remo (4x10)[cite: 4]</label>
+                </div>
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+                    <input type="checkbox" id="ex4" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex4" class="text-lg">Curl Bíceps Barra + Martillo (3x12)[cite: 4]</label>
+                </div>
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg">
+                    <input type="checkbox" id="ex5" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex5" class="text-lg">Planchas Abdominales (4x45s) - Vientre Plano[cite: 4]</label>
+                </div>
+                <div class="flex items-center space-x-3 p-3 bg-slate-800 rounded-lg border border-yellow-500/30">
+                    <input type="checkbox" id="ex6" class="check-item w-5 h-5 accent-green-500">
+                    <label for="ex6" class="text-lg">HIIT Elíptica (Sin impacto en rodillas) - 15 min[cite: 4]</label>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALIMENTACIÓN -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">🥗 Alimentación Diaria</h2>
+            <div class="card grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <h3 class="font-bold text-yellow-400 border-b border-yellow-400/30 mb-2 pb-1">☕ DESAYUNO</h3>
+                    <p class="text-sm">Vaso de Café con Leche (+Proteína Mercadona) + Tostada de Centeno con Pavo[cite: 4].</p>
+                </div>
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <h3 class="font-bold text-green-400 border-b border-green-400/30 mb-2 pb-1">🍲 COMIDA</h3>
+                    <p class="text-sm">Pollo/Pavo + Brócoli/Espárragos + 40g Arroz Integral[cite: 4].</p>
+                </div>
+                <div class="bg-slate-700/50 p-4 rounded-lg">
+                    <h3 class="font-bold text-blue-400 border-b border-blue-400/30 mb-2 pb-1">🐟 CENA</h3>
+                    <p class="text-sm">Pescado blanco o Salmón + Ensalada Mixta + 1/2 Aguacate[cite: 4].</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LISTA COMPRA MERCADONA -->
+        <section class="mb-20">
+            <h2 class="text-2xl font-bold mb-4 flex items-center">🛒 Carrito Mercadona</h2>
+            <div class="card bg-slate-800">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 text-sm">
+                    <li>✅ Leche +Proteína o Semidesnatada[cite: 4]</li>
+                    <li>✅ Pan de Centeno 100% integral[cite: 4]</li>
+                    <li>✅ Pechuga de Pollo y Pavo[cite: 4]</li>
+                    <li>✅ Salmón y Merluza fresca/congelada[cite: 4]</li>
+                    <li>✅ Arroz integral y Quinoa[cite: 4]</li>
+                    <li>✅ Brócoli, Espinacas y Canónigos[cite: 4]</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
