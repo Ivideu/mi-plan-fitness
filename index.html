@@ -2,449 +2,76 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <title>Rutina para perder barriga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mi Plan Fitness</title>
+
   <style>
-    :root {
-      --bg: #0f172a;
-      --card1: #1d4ed8;
-      --card2: #16a34a;
-      --card3: #f97316;
-      --card4: #a855f7;
-      --card5: #0ea5e9;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --border: #1f2937;
-    }
-
-    * {
-      box-sizing: border-box;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
     body {
       margin: 0;
-      padding: 24px;
-      background: radial-gradient(circle at top, #1e293b 0, #020617 55%);
-      color: var(--text);
+      padding: 40px 20px;
+      font-family: system-ui, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
     }
 
     h1 {
-      margin: 0 0 8px;
-      font-size: 1.8rem;
-    }
-
-    .subtitle {
-      margin-bottom: 16px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .pill {
-      padding: 6px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15, 23, 42, 0.8);
-      font-size: 0.8rem;
-      color: var(--muted);
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 16px;
+      gap: 20px;
+      max-width: 600px;
+      margin: auto;
     }
 
     .card {
-      border-radius: 18px;
-      padding: 16px 18px;
-      border: 1px solid rgba(148, 163, 184, 0.25);
-      background: linear-gradient(
-        135deg,
-        rgba(15, 23, 42, 0.95),
-        rgba(15, 23, 42, 0.85)
-      );
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      opacity: 0.18;
-      background: radial-gradient(circle at top left, rgba(255, 255, 255, 0.18), transparent 55%);
-      pointer-events: none;
-    }
-
-    .card-header {
+      padding: 20px;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-decoration: none;
+      color: inherit;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
+      gap: 15px;
+      transition: transform .2s, box-shadow .2s;
     }
 
-    .card-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      font-size: 0.98rem;
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
     }
 
-    .card-title span.emoji {
+    .emoji {
+      font-size: 2rem;
+    }
+
+    .title {
       font-size: 1.2rem;
-    }
-
-    .card-tag {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      color: var(--muted);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    .card-meta {
-      font-size: 0.8rem;
-      color: var(--muted);
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 6px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .item {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      gap: 8px;
-      align-items: flex-start;
-      padding: 6px 8px;
-      border-radius: 10px;
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(31, 41, 55, 0.9);
-    }
-
-    .item input[type="checkbox"] {
-      margin-top: 3px;
-      width: 16px;
-      height: 16px;
-      accent-color: #22c55e;
-      cursor: pointer;
-    }
-
-    .item-label {
-      font-size: 0.85rem;
-      line-height: 1.3;
-    }
-
-    .item-label span.time {
-      display: inline-block;
-      margin-left: 4px;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* Color accents por ficha */
-    .card.calentamiento {
-      border-color: rgba(59, 130, 246, 0.7);
-      box-shadow: 0 18px 40px rgba(59, 130, 246, 0.35);
-    }
-    .card.cardio {
-      border-color: rgba(248, 113, 113, 0.7);
-      box-shadow: 0 18px 40px rgba(248, 113, 113, 0.35);
-    }
-    .card.fuerza {
-      border-color: rgba(34, 197, 94, 0.7);
-      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
-    }
-    .card.core {
-      border-color: rgba(244, 114, 182, 0.7);
-      box-shadow: 0 18px 40px rgba(244, 114, 182, 0.35);
-    }
-    .card.enfriamiento {
-      border-color: rgba(56, 189, 248, 0.7);
-      box-shadow: 0 18px 40px rgba(56, 189, 248, 0.35);
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding: 16px;
-      }
+      font-weight: 600;
     }
   </style>
 </head>
-<body>
-  <h1>🎯 Rutina completa para perder barriga (15–20 min)</h1>
-  <p class="subtitle">
-    Objetivo: bajar grasa general (incluida la barriga) + tonificar
-  </p>
 
-  <div class="meta">
-    <span class="pill">Frecuencia: 4–5 días por semana</span>
-    <span class="pill">Material: ninguno</span>
-  </div>
+<body>
+
+  <h1>Mi Plan Fitness</h1>
 
   <div class="grid">
-    <!-- Calentamiento -->
-    <section class="card calentamiento">
-      <header class="card-header">
-        <div class="card-title">
-          <span class="emoji">🔥</span>
-          <span>1. Calentamiento dinámico</span>
-        </div>
-        <span class="card-tag">2 minutos</span>
-      </header>
-      <p class="card-meta">Activa el cuerpo y prepara articulaciones.</p>
-      <ul class="list">
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Marcha rápida elevando rodillas
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Círculos de brazos
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Torsiones de cintura
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Saltitos suaves o paso lateral
-            <span class="time">30 s</span>
-          </div>
-        </li>
-      </ul>
-    </section>
+    <a class="card" href="rutina.html">
+      <span class="emoji">💪</span>
+      <span class="title">Rutina de ejercicios</span>
+    </a>
 
-    <!-- Cardio -->
-    <section class="card cardio">
-      <header class="card-header">
-        <div class="card-title">
-          <span class="emoji">🫀</span>
-          <span>2. Cardio quema‑grasa</span>
-        </div>
-        <span class="card-tag">6 minutos</span>
-      </header>
-      <p class="card-meta">40 s ejercicio + 20 s descanso.</p>
-      <ul class="list">
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Jumping jacks (o paso lateral si quieres bajo impacto)
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Rodillas arriba
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Paso atrás alterno (lunges suaves)
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Trote en el sitio
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Saltos laterales
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Rodillas al pecho lento (core + cardio)
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Fuerza -->
-    <section class="card fuerza">
-      <header class="card-header">
-        <div class="card-title">
-          <span class="emoji">💪</span>
-          <span>3. Fuerza para acelerar el metabolismo</span>
-        </div>
-        <span class="card-tag">6 minutos</span>
-      </header>
-      <p class="card-meta">40 s ejercicio + 20 s descanso.</p>
-      <ul class="list">
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Sentadillas
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Puente de glúteo
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Flexiones apoyando rodillas
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Peso muerto sin peso (inclinación de cadera)
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Zancadas alternas
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Superman (espalda baja)
-            <span class="time">40 s + 20 s descanso</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Core -->
-    <section class="card core">
-      <header class="card-header">
-        <div class="card-title">
-          <span class="emoji">🔒</span>
-          <span>4. Core efectivo</span>
-        </div>
-        <span class="card-tag">4 minutos</span>
-      </header>
-      <p class="card-meta">30 s cada ejercicio.</p>
-      <ul class="list">
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Plancha
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Plancha lateral derecha
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Plancha lateral izquierda
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Dead bug
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Hollow hold (o crunch si es muy difícil)
-            <span class="time">30 s</span>
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Elevación de rodillas tumbada
-            <span class="time">30 s</span>
-          </div>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Enfriamiento -->
-    <section class="card enfriamiento">
-      <header class="card-header">
-        <div class="card-title">
-          <span class="emoji">🧊</span>
-          <span>5. Enfriamiento</span>
-        </div>
-        <span class="card-tag">2 minutos</span>
-      </header>
-      <p class="card-meta">Vuelve a la calma y estira.</p>
-      <ul class="list">
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Respiración profunda
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Estiramiento de abdomen y espalda
-          </div>
-        </li>
-        <li class="item">
-          <input type="checkbox" />
-          <div class="item-label">
-            Estiramiento de piernas
-          </div>
-        </li>
-      </ul>
-    </section>
+    <a class="card" href="alimentacion.html">
+      <span class="emoji">🍽️</span>
+      <span class="title">Plan de alimentación</span>
+    </a>
   </div>
+
 </body>
 </html>
