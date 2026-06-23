@@ -1,1 +1,198 @@
-body
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Rutina para perder barriga</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+
+      --c1: #3b82f6;
+      --c2: #ef4444;
+      --c3: #22c55e;
+      --c4: #a855f7;
+      --c5: #06b6d4;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-left: 6px solid var(--c1);
+      animation: fadeIn .5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      background: #f8fafc;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .item input {
+      margin-top: 3px;
+      width: 18px;
+      height: 18px;
+      accent-color: #22c55e;
+    }
+
+    .item-label {
+      font-size: 0.9rem;
+      line-height: 1.3;
+    }
+
+    .time {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* COLORES DE FICHAS */
+    .c1 { border-left-color: var(--c1); }
+    .c2 { border-left-color: var(--c2); }
+    .c3 { border-left-color: var(--c3); }
+    .c4 { border-left-color: var(--c4); }
+    .c5 { border-left-color: var(--c5); }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>🎯 Rutina completa para perder barriga (15–20 min)</h1>
+  <p class="subtitle">Objetivo: bajar grasa general + tonificar</p>
+
+  <span class="pill">Frecuencia: 4–5 días</span>
+  <span class="pill">Material: ninguno</span>
+
+  <!-- Calentamiento -->
+  <section class="card c1">
+    <h2>🔥 Calentamiento dinámico <span class="tag">2 min</span></h2>
+    <ul class="list">
+      <li class="item"><input type="checkbox"><div class="item-label">Marcha rápida elevando rodillas <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Círculos de brazos <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Torsiones de cintura <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Saltitos suaves o paso lateral <span class="time">30 s</span></div></li>
+    </ul>
+  </section>
+
+  <!-- Cardio -->
+  <section class="card c2">
+    <h2>🫀 Cardio quema‑grasa <span class="tag">6 min</span></h2>
+    <ul class="list">
+      <li class="item"><input type="checkbox"><div class="item-label">Jumping jacks <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Rodillas arriba <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Paso atrás alterno <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Trote en el sitio <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Saltos laterales <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Rodillas al pecho lento <span class="time">40 s + 20 s</span></div></li>
+    </ul>
+  </section>
+
+  <!-- Fuerza -->
+  <section class="card c3">
+    <h2>💪 Fuerza para acelerar el metabolismo <span class="tag">6 min</span></h2>
+    <ul class="list">
+      <li class="item"><input type="checkbox"><div class="item-label">Sentadillas <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Puente de glúteo <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Flexiones con rodillas <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Peso muerto sin peso <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Zancadas alternas <span class="time">40 s + 20 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Superman <span class="time">40 s + 20 s</span></div></li>
+    </ul>
+  </section>
+
+  <!-- Core -->
+  <section class="card c4">
+    <h2>🔒 Core efectivo <span class="tag">4 min</span></h2>
+    <ul class="list">
+      <li class="item"><input type="checkbox"><div class="item-label">Plancha <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Plancha lateral derecha <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Plancha lateral izquierda <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Dead bug <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Hollow hold <span class="time">30 s</span></div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Elevación de rodillas tumbada <span class="time">30 s</span></div></li>
+    </ul>
+  </section>
+
+  <!-- Enfriamiento -->
+  <section class="card c5">
+    <h2>🧊 Enfriamiento <span class="tag">2 min</span></h2>
+    <ul class="list">
+      <li class="item"><input type="checkbox"><div class="item-label">Respiración profunda</div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Estiramiento de abdomen y espalda</div></li>
+      <li class="item"><input type="checkbox"><div class="item-label">Estiramiento de piernas</div></li>
+    </ul>
+  </section>
+
+</body>
+</html>
