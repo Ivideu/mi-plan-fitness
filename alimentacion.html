@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plan de alimentación</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --text: #0f172a;
+      --muted: #64748b;
+
+      --c1: #3b82f6;
+      --c2: #22c55e;
+      --c3: #f97316;
+      --c4: #a855f7;
+      --c5: #06b6d4;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, sans-serif;
+    }
+
+    h1 {
+      margin-bottom: 6px;
+      font-size: 1.8rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      padding: 18px;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      border-left: 6px solid var(--c1);
+      animation: fadeIn .5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .section2 { border-left-color: var(--c2); }
+    .section3 { border-left-color: var(--c3); }
+    .section4 { border-left-color: var(--c4); }
+    .section5 { border-left-color: var(--c5); }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>🍽️ Plan de alimentación para perder barriga</h1>
+  <p class="subtitle">Guía adaptada a tu objetivo y estilo de vida</p>
+
+  <section class="card section1">
+    <h2>🥣 Desayunos recomendados</h2>
+    <ul>
+      <li>Avena con fruta y yogur</li>
+      <li>Tostada integral con aguacate y huevo</li>
+      <li>Yogur griego con frutos rojos y nueces</li>
+    </ul>
+  </section>
+
+  <section class="card section2">
+    <h2>🍽️ Comidas recomendadas</h2>
+    <ul>
+      <li>Pollo a la plancha con verduras</li>
+      <li>Arroz integral con salmón</li>
+      <li>Pasta integral con verduras y aceite de oliva</li>
+    </ul>
+  </section>
+
+  <section class="card section3">
+    <h2>🌙 Cenas ligeras</h2>
+    <ul>
+      <li>Tortilla francesa con ensalada</li>
+      <li>Crema de verduras</li>
+      <li>Atún con tomate y aceite de oliva</li>
+    </ul>
+  </section>
+
+  <section class="card section4">
+    <h2>🍏 Snacks saludables</h2>
+    <ul>
+      <li>Fruta</li>
+      <li>Frutos secos (un puñado)</li>
+      <li>Yogur natural</li>
+    </ul>
+  </section>
+
+  <section class="card section5">
+    <h2>💧 Hidratación</h2>
+    <ul>
+      <li>1,5–2 L de agua al día</li>
+    </ul>
+  </section>
+
+  <section class="card section1">
+    <h2>🔥 Consejos clave para perder barriga</h2>
+    <ul>
+      <li>Evitar bebidas azucaradas</li>
+      <li>Reducir alcohol entre semana</li>
+      <li>Priorizar proteína en cada comida</li>
+      <li>Dormir 7–8 horas</li>
+    </ul>
+  </section>
+
+</body>
+</html>
