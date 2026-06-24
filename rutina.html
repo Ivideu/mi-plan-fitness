@@ -3,433 +3,869 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Rutina completa con imágenes</title>
+<title>Rutina · Quema grasa</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
-  body {
+  :root{
+    --bg: #EEF1F4;
+    --ink: #0F1B2D;
+    --panel: #FFFFFF;
+    --muted: #6B7686;
+    --line: #DCE2E9;
+    --coral: #FF5A36;
+    --coral-soft: #FFE4DA;
+    --mint: #19B894;
+    --mint-soft: #D7F4EC;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
     margin: 0;
-    padding: 20px;
-    background: #f8fafc;
-    font-family: system-ui, sans-serif;
-    color: #0f172a;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
 
-  h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+  /* ---------- HERO ---------- */
+
+  .hero{
+    padding: 38px 20px 28px;
+    position: relative;
+    overflow: hidden;
   }
 
-  .subtitle {
-    color: #64748b;
-    margin-bottom: 16px;
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--coral-soft) 0%, transparent 70%);
+    pointer-events: none;
   }
 
-  .pill {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-right: 8px;
-    border-radius: 999px;
-    background: white;
-    border: 1px solid #e2e8f0;
-    font-size: 0.8rem;
-    color: #64748b;
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--coral);
+    text-transform: uppercase;
   }
 
-  .card {
-    background: white;
-    border: 1px solid #e2e8f0;
-    padding: 18px;
-    border-radius: 16px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  .eyebrow::before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 4px var(--coral-soft);
   }
 
-  .card h2 {
-    margin: 0 0 10px;
-    font-size: 1.2rem;
+  .hero h1{
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(3rem, 13vw, 4.6rem);
+    line-height: 0.92;
+    letter-spacing: -0.01em;
+    margin: 10px 0 6px;
+    text-transform: uppercase;
   }
 
-  .tag {
-    font-size: 0.75rem;
-    padding: 4px 10px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    color: #64748b;
-    float: right;
+  .hero h1 small{
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 0.32em;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    text-transform: none;
   }
 
-  .item {
+  .hero h1 .accent{ color: var(--coral); }
+
+  .lede{
+    max-width: 480px;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin: 0 0 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats{
     display: flex;
     gap: 10px;
-    align-items: flex-start;
-    padding: 10px;
-    border-radius: 10px;
-    background: #f8fafc;
-    margin-bottom: 10px;
-    border: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    min-width: 92px;
+  }
+
+  .stat-num{
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .stat-label{
+    display: block;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* ---------- TRACK / PHASES ---------- */
+
+  main{
+    padding: 6px 20px 130px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .track{
+    position: relative;
+  }
+
+  .track::before{
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: var(--line);
+    z-index: 0;
+  }
+
+  .phase{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 22px;
+  }
+
+  .phase-head{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+  }
+
+  .ring-wrap{
+    position: relative;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+
+  .ring-wrap svg{ transform: rotate(-90deg); }
+
+  .ring-track{
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 4;
+  }
+
+  .ring-fill{
+    fill: none;
+    stroke: var(--mint);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.45s ease;
+  }
+
+  .ring-label{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .phase-title{ flex: 1; }
+
+  .phase-eyebrow{
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .phase-title h2{
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 1px 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  .phase-time{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--coral);
+    background: var(--coral-soft);
+    padding: 4px 10px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .items{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-left: 62px;
+  }
+
+  /* ---------- ITEM ROWS ---------- */
+
+  .item{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 12px 14px;
     cursor: pointer;
     user-select: none;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+  }
+
+  .item:hover{ border-color: #C7D0DA; }
+  .item:active{ transform: scale(0.99); }
+
+  .item.done{
+    background: var(--mint-soft);
+    border-color: var(--mint);
+  }
+
+  .item-row{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .check-dot{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: background 0.15s ease, border-color 0.15s ease;
   }
 
-  .item:hover {
-    background: #eef2f7;
+  .item.done .check-dot{
+    background: var(--mint);
+    border-color: var(--mint);
   }
 
-  .item:active {
-    background: #e2e8f0;
+  .check-dot svg{
+    width: 13px;
+    height: 13px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.15s ease, transform 0.15s ease;
   }
 
-  .item input {
-    width: 20px;
-    height: 20px;
-    accent-color: #22c55e;
-    cursor: pointer;
-    pointer-events: none; /* el clic lo gestiona el contenedor .item */
+  .item.done .check-dot svg{
+    opacity: 1;
+    transform: scale(1);
   }
 
-  .item-label {
-    font-size: 0.9rem;
+  .real-checkbox{
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .item-label{
+    flex: 1;
+    font-size: 0.92rem;
+    font-weight: 500;
     line-height: 1.3;
   }
 
-  .time {
+  .item.done .item-label{ color: var(--ink); }
+
+  .time{
     display: block;
-    font-size: 0.75rem;
-    color: #64748b;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 2px;
+    font-weight: 500;
   }
 
-  .exercise-img {
-    display: none;
-    margin-top: 10px;
+  .img-wrap{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+
+  .item.done .img-wrap{
+    max-height: 420px;
+  }
+
+  .exercise-img{
+    display: block;
+    margin-top: 12px;
     border-radius: 12px;
     width: 100%;
-    max-width: 380px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--line);
+  }
+
+  /* ---------- STICKY DOCK ---------- */
+
+  .dock{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 20px 18px;
+    z-index: 10;
+  }
+
+  .dock-inner{
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .dock-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .dock-text{
+    font-size: 0.82rem;
+    font-weight: 600;
+  }
+
+  .dock-count{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .dock-bar{
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    overflow: hidden;
+  }
+
+  .dock-fill{
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--coral), var(--mint));
+    border-radius: 999px;
+    transition: width 0.45s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ring-fill, .img-wrap, .dock-fill, .check-dot, .check-dot svg, .item{
+      transition: none !important;
+    }
+  }
+
+  @media (min-width: 540px){
+    .hero{ padding: 52px 32px 32px; }
+    main{ padding: 6px 32px 130px; }
   }
 </style>
-
-<script>
-  // Alterna el checkbox y la imagen al hacer clic en cualquier parte de la celda
-  function toggleItem(itemEl, imgId) {
-    const checkbox = itemEl.querySelector('input[type="checkbox"]');
-    if (checkbox) {
-      checkbox.checked = !checkbox.checked;
-    }
-    const img = document.getElementById(imgId);
-    if (img) {
-      img.style.display = checkbox && checkbox.checked ? "block" : "none";
-    }
-  }
-</script>
 </head>
 
 <body>
 
-<h1>🎯 Rutina completa para perder barriga (15–20 min)</h1>
-<p class="subtitle">Objetivo: bajar grasa general (incluida la barriga) + tonificar</p>
-
-<span class="pill">Frecuencia: 4–5 días por semana</span>
-<span class="pill">Material: ninguno</span>
-
-<!-- 1. CALENTAMIENTO -->
-<section class="card">
-  <h2>🔥 Calentamiento dinámico <span class="tag">2 min</span></h2>
-
-  <div class="item" onclick="toggleItem(this, 'img-9769')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Marcha rápida elevando rodillas
-      <span class="time">30 s</span>
+<header class="hero">
+  <span class="eyebrow">Rutina sin material</span>
+  <h1>15–20<small>minutos · <span class="accent">quema grasa</span></small></h1>
+  <p class="lede">Calentamiento, cardio, fuerza, core y enfriamiento en un único circuito. Marca cada ejercicio al terminarlo y mira cómo avanza el anillo.</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="totalCount">0/25</span>
+      <span class="stat-label">Ejercicios</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4–5</span>
+      <span class="stat-label">Días / semana</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">0</span>
+      <span class="stat-label">Material</span>
     </div>
   </div>
-  <img id="img-9769" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9791.png?raw=1"
-       alt="Marcha rápida elevando rodillas" />
+</header>
 
-  <div class="item" onclick="toggleItem(this, 'img-9770')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Círculos de brazos
-      <span class="time">30 s</span>
+<main>
+<div class="track">
+
+  <!-- 1. CALENTAMIENTO -->
+  <section class="phase" data-phase>
+    <div class="phase-head">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+        </svg>
+        <span class="ring-label">0/4</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Fase 01</span>
+        <h2>Calentamiento dinámico</h2>
+      </div>
+      <span class="phase-time">2 min</span>
     </div>
-  </div>
-  <img id="img-9770" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9770.jpeg?raw=1"
-       alt="Círculos de brazos" />
 
-  <div class="item" onclick="toggleItem(this, 'img-9771')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Torsiones de cintura
-      <span class="time">30 s</span>
+    <div class="items">
+      <div class="item" onclick="toggleItem(this, 'img-9769')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Marcha rápida elevando rodillas<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9769" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9791.png?raw=1" alt="Marcha rápida elevando rodillas" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9770')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Círculos de brazos<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9770" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9770.jpeg?raw=1" alt="Círculos de brazos" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9771')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Torsiones de cintura<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9771" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9771.jpeg?raw=1" alt="Torsiones de cintura" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9772')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Saltitos suaves o paso lateral<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9772" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9788.jpeg?raw=1" alt="Saltitos suaves o paso lateral" />
+        </div>
+      </div>
     </div>
-  </div>
-  <img id="img-9771" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9771.jpeg?raw=1"
-       alt="Torsiones de cintura" />
+  </section>
 
-  <div class="item" onclick="toggleItem(this, 'img-9772')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Saltitos suaves o paso lateral
-      <span class="time">30 s</span>
+  <!-- 2. CARDIO -->
+  <section class="phase" data-phase>
+    <div class="phase-head">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+        </svg>
+        <span class="ring-label">0/6</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Fase 02</span>
+        <h2>Cardio quema-grasa</h2>
+      </div>
+      <span class="phase-time">6 min</span>
     </div>
-  </div>
-  <img id="img-9772" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9788.jpeg?raw=1"
-       alt="Saltitos suaves o paso lateral" />
-</section>
 
-<!-- 2. CARDIO -->
-<section class="card">
-  <h2>🫀 Cardio quema‑grasa <span class="tag">6 min</span></h2>
+    <div class="items">
+      <div class="item" onclick="toggleItem(this, 'img-9773')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Jumping jacks (o paso lateral si quieres bajo impacto)<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9773" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9789.jpeg?raw=1" alt="Jumping jacks" />
+        </div>
+      </div>
 
-  <div class="item" onclick="toggleItem(this, 'img-9773')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Jumping jacks (o paso lateral si quieres bajo impacto)
-      <span class="time">40 s + 20 s descanso</span>
+      <div class="item" onclick="toggleItem(this, 'img-9774')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Rodillas arriba<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9774" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9773.jpeg?raw=1" alt="Rodillas arriba" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9775')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Paso atrás alterno (lunges suaves)<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9775" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9774.jpeg?raw=1" alt="Paso atrás alterno" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9776')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Trote en el sitio<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9776" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9775.jpeg?raw=1" alt="Trote en el sitio" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9777')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Saltos laterales<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9777" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9776.jpeg?raw=1" alt="Saltos laterales" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9778')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Rodillas al pecho lento (core + cardio)<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9778" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9777.jpeg?raw=1" alt="Rodillas al pecho lento" />
+        </div>
+      </div>
     </div>
-  </div>
-  <img id="img-9773" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9789.jpeg?raw=1"
-       alt="Jumping jacks" />
+  </section>
 
-  <div class="item" onclick="toggleItem(this, 'img-9774')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Rodillas arriba
-      <span class="time">40 s + 20 s descanso</span>
+  <!-- 3. FUERZA -->
+  <section class="phase" data-phase>
+    <div class="phase-head">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+        </svg>
+        <span class="ring-label">0/6</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Fase 03</span>
+        <h2>Fuerza · acelera el metabolismo</h2>
+      </div>
+      <span class="phase-time">6 min</span>
     </div>
-  </div>
-  <img id="img-9774" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9773.jpeg?raw=1"
-       alt="Rodillas arriba" />
 
-  <div class="item" onclick="toggleItem(this, 'img-9775')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Paso atrás alterno (lunges suaves)
-      <span class="time">40 s + 20 s descanso</span>
+    <div class="items">
+      <div class="item" onclick="toggleItem(this, 'img-9779')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Sentadillas<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9779" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9790.jpeg?raw=1" alt="Sentadillas" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9780')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Puente de glúteo<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9780" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9778.jpeg?raw=1" alt="Puente de glúteo" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9781')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Flexiones apoyando rodillas<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9781" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9779.jpeg?raw=1" alt="Flexiones apoyando rodillas" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9782')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Peso muerto sin peso (inclinación de cadera)<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9782" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9780.jpeg?raw=1" alt="Peso muerto sin peso" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9783')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Zancadas alternas<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9783" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9781.jpeg?raw=1" alt="Zancadas alternas" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9784')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Superman (espalda baja)<span class="time">40 s + 20 s descanso</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9784" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9782.jpeg?raw=1" alt="Superman" />
+        </div>
+      </div>
     </div>
-  </div>
-  <img id="img-9775" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9774.jpeg?raw=1"
-       alt="Paso atrás alterno" />
+  </section>
 
-  <div class="item" onclick="toggleItem(this, 'img-9776')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Trote en el sitio
-      <span class="time">40 s + 20 s descanso</span>
+  <!-- 4. CORE -->
+  <section class="phase" data-phase>
+    <div class="phase-head">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+        </svg>
+        <span class="ring-label">0/6</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Fase 04</span>
+        <h2>Core efectivo</h2>
+      </div>
+      <span class="phase-time">4 min</span>
     </div>
-  </div>
-  <img id="img-9776" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9775.jpeg?raw=1"
-       alt="Trote en el sitio" />
 
-  <div class="item" onclick="toggleItem(this, 'img-9777')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Saltos laterales
-      <span class="time">40 s + 20 s descanso</span>
+    <div class="items">
+      <div class="item" onclick="toggleItem(this, 'img-9785')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Plancha<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9785" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9783.jpeg?raw=1" alt="Plancha" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-9786')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Plancha lateral derecha<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-9786" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1" alt="Plancha lateral derecha" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-core-extra1')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Plancha lateral izquierda<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-core-extra1" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1" alt="Plancha lateral izquierda" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-core-extra2')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Dead bug<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-core-extra2" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9785.jpeg?raw=1" alt="Dead bug" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-core-extra3')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Hollow hold (o crunch si es muy difícil)<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-core-extra3" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9787.jpeg?raw=1" alt="Hollow hold" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-core-extra4')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Elevación de rodillas tumbada<span class="time">30 s</span></div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-core-extra4" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg?raw=1" alt="Elevación de rodillas tumbada" />
+        </div>
+      </div>
     </div>
-  </div>
-  <img id="img-9777" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9776.jpeg?raw=1"
-       alt="Saltos laterales" />
+  </section>
 
-  <div class="item" onclick="toggleItem(this, 'img-9778')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Rodillas al pecho lento (core + cardio)
-      <span class="time">40 s + 20 s descanso</span>
+  <!-- 5. ENFRIAMIENTO -->
+  <section class="phase" data-phase>
+    <div class="phase-head">
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="125.6" stroke-dashoffset="125.6" />
+        </svg>
+        <span class="ring-label">0/3</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Fase 05</span>
+        <h2>Enfriamiento</h2>
+      </div>
+      <span class="phase-time">2 min</span>
     </div>
-  </div>
-  <img id="img-9778" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9777.jpeg?raw=1"
-       alt="Rodillas al pecho lento" />
-</section>
 
-<!-- 3. FUERZA -->
-<section class="card">
-  <h2>💪 Fuerza para acelerar el metabolismo <span class="tag">6 min</span></h2>
+    <div class="items">
+      <div class="item" onclick="toggleItem(this, 'img-cool1')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Respiración profunda</div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-cool1" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9793.jpeg?raw=1" alt="Respiración profunda" />
+        </div>
+      </div>
 
-  <div class="item" onclick="toggleItem(this, 'img-9779')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Sentadillas
-      <span class="time">40 s + 20 s descanso</span>
+      <div class="item" onclick="toggleItem(this, 'img-cool2')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Estiramiento de abdomen y espalda</div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-cool2" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9794.jpeg?raw=1" alt="Estiramiento de abdomen y espalda" />
+        </div>
+      </div>
+
+      <div class="item" onclick="toggleItem(this, 'img-cool3')">
+        <div class="item-row">
+          <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <input type="checkbox" class="real-checkbox" />
+          <div class="item-label">Estiramiento de piernas</div>
+        </div>
+        <div class="img-wrap">
+          <img id="img-cool3" class="exercise-img" src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9795.jpeg?raw=1" alt="Estiramiento de piernas" />
+        </div>
+      </div>
     </div>
-  </div>
-  <img id="img-9779" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9790.jpeg?raw=1"
-       alt="Sentadillas" />
+  </section>
 
-  <div class="item" onclick="toggleItem(this, 'img-9780')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Puente de glúteo
-      <span class="time">40 s + 20 s descanso</span>
+</div>
+</main>
+
+<div class="dock">
+  <div class="dock-inner">
+    <div class="dock-top">
+      <span class="dock-text" id="dockText">Empieza cuando quieras</span>
+      <span class="dock-count" id="dockCount">0/25</span>
     </div>
+    <div class="dock-bar"><div class="dock-fill" id="dockFill"></div></div>
   </div>
-  <img id="img-9780" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9778.jpeg?raw=1"
-       alt="Puente de glúteo" />
+</div>
 
-  <div class="item" onclick="toggleItem(this, 'img-9781')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Flexiones apoyando rodillas
-      <span class="time">40 s + 20 s descanso</span>
-    </div>
-  </div>
-  <img id="img-9781" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9779.jpeg?raw=1"
-       alt="Flexiones apoyando rodillas" />
+<script>
+  const RING_CIRCUMFERENCE = 2 * Math.PI * 20; // r = 20
 
-  <div class="item" onclick="toggleItem(this, 'img-9782')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Peso muerto sin peso (inclinación de cadera)
-      <span class="time">40 s + 20 s descanso</span>
-    </div>
-  </div>
-  <img id="img-9782" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9780.jpeg?raw=1"
-       alt="Peso muerto sin peso" />
+  function toggleItem(itemEl, imgId){
+    const checkbox = itemEl.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    itemEl.classList.toggle('done', checkbox.checked);
+    updateProgress();
+  }
 
-  <div class="item" onclick="toggleItem(this, 'img-9783')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Zancadas alternas
-      <span class="time">40 s + 20 s descanso</span>
-    </div>
-  </div>
-  <img id="img-9783" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9781.jpeg?raw=1"
-       alt="Zancadas alternas" />
+  function updateProgress(){
+    let totalChecked = 0;
+    let totalAll = 0;
 
-  <div class="item" onclick="toggleItem(this, 'img-9784')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Superman (espalda baja)
-      <span class="time">40 s + 20 s descanso</span>
-    </div>
-  </div>
-  <img id="img-9784" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9782.jpeg?raw=1"
-       alt="Superman" />
-</section>
+    document.querySelectorAll('.phase').forEach(phase => {
+      const boxes = phase.querySelectorAll('input[type="checkbox"]');
+      const checked = phase.querySelectorAll('input[type="checkbox"]:checked').length;
+      totalChecked += checked;
+      totalAll += boxes.length;
 
-<!-- 4. CORE -->
-<section class="card">
-  <h2>🔒 Core efectivo <span class="tag">4 min</span></h2>
+      const ringFill = phase.querySelector('.ring-fill');
+      const ringLabel = phase.querySelector('.ring-label');
+      const ratio = boxes.length ? checked / boxes.length : 0;
+      if (ringFill) ringFill.style.strokeDashoffset = RING_CIRCUMFERENCE * (1 - ratio);
+      if (ringLabel) ringLabel.textContent = checked + '/' + boxes.length;
+    });
 
-  <div class="item" onclick="toggleItem(this, 'img-9785')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Plancha
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-9785" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9783.jpeg?raw=1"
-       alt="Plancha" />
+    document.getElementById('totalCount').textContent = totalChecked + '/' + totalAll;
+    document.getElementById('dockCount').textContent = totalChecked + '/' + totalAll;
 
-  <div class="item" onclick="toggleItem(this, 'img-9786')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Plancha lateral derecha
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-9786" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1"
-       alt="Plancha lateral derecha" />
+    const ratio = totalAll ? totalChecked / totalAll : 0;
+    document.getElementById('dockFill').style.width = (ratio * 100) + '%';
 
-  <!-- Para los ejercicios restantes de core y enfriamiento reutilizamos la última imagen (puedes cambiarla luego) -->
+    const dockText = document.getElementById('dockText');
+    if (totalAll > 0 && totalChecked === totalAll) {
+      dockText.textContent = '¡Rutina completa! 💪';
+    } else if (totalChecked === 0) {
+      dockText.textContent = 'Empieza cuando quieras';
+    } else {
+      dockText.textContent = 'Sigue así';
+    }
+  }
 
-  <div class="item" onclick="toggleItem(this, 'img-core-extra1')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Plancha lateral izquierda
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-core-extra1" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1"
-       alt="Plancha lateral izquierda" />
-
-  <div class="item" onclick="toggleItem(this, 'img-core-extra2')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Dead bug
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-core-extra2" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9785.jpeg?raw=1"
-       alt="Dead bug" />
-
-  <div class="item" onclick="toggleItem(this, 'img-core-extra3')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Hollow hold (o crunch si es muy difícil)
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-core-extra3" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9787.jpeg?raw=1"
-       alt="Hollow hold" />
-
-  <div class="item" onclick="toggleItem(this, 'img-core-extra4')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Elevación de rodillas tumbada
-      <span class="time">30 s</span>
-    </div>
-  </div>
-  <img id="img-core-extra4" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg?raw=1"
-       alt="Elevación de rodillas tumbada" />
-</section>
-
-<!-- 5. ENFRIAMIENTO -->
-<section class="card">
-  <h2>🧊 Enfriamiento <span class="tag">2 min</span></h2>
-
-  <div class="item" onclick="toggleItem(this, 'img-cool1')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Respiración profunda
-    </div>
-  </div>
-  <img id="img-cool1" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9793.jpeg?raw=1"
-       alt="Respiración profunda" />
-
-  <div class="item" onclick="toggleItem(this, 'img-cool2')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Estiramiento de abdomen y espalda
-    </div>
-  </div>
-  <img id="img-cool2" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9794.jpeg?raw=1"
-       alt="Estiramiento de abdomen y espalda" />
-
-  <div class="item" onclick="toggleItem(this, 'img-cool3')">
-    <input type="checkbox" />
-    <div class="item-label">
-      Estiramiento de piernas
-    </div>
-  </div>
-  <img id="img-cool3" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9795.jpeg?raw=1"
-       alt="Estiramiento de piernas" />
-</section>
+  updateProgress();
+</script>
 
 </body>
 </html>
