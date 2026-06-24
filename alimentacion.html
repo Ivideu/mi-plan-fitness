@@ -1,137 +1,737 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Plan de alimentación</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Plan de alimentación · 4 semanas</title>
 
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --text: #0f172a;
-      --muted: #64748b;
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
 
-      --c1: #3b82f6;
-      --c2: #22c55e;
-      --c3: #f97316;
-      --c4: #a855f7;
-      --c5: #06b6d4;
-    }
+<style>
+  :root{
+    --bg: #EEF1F4;
+    --ink: #0F1B2D;
+    --panel: #FFFFFF;
+    --muted: #6B7686;
+    --line: #DCE2E9;
+    --coral: #FF5A36;
+    --coral-soft: #FFE4DA;
+    --mint: #19B894;
+    --mint-soft: #D7F4EC;
+  }
 
-    body {
-      margin: 0;
-      padding: 20px;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, sans-serif;
-    }
+  *{ box-sizing: border-box; }
 
-    h1 {
-      margin-bottom: 6px;
-      font-size: 1.8rem;
-    }
+  body{
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
 
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
+  /* ---------- HERO ---------- */
 
-    .card {
-      background: white;
-      border: 1px solid #e2e8f0;
-      padding: 18px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border-left: 6px solid var(--c1);
-      animation: fadeIn .5s ease;
-    }
+  .hero{
+    padding: 38px 20px 28px;
+    position: relative;
+    overflow: hidden;
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .hero::before{
+    content: "";
+    position: absolute;
+    top: -120px;
+    right: -120px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--coral-soft) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
-    .card h2 {
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-    }
+  .eyebrow{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    color: var(--coral);
+    text-transform: uppercase;
+  }
 
-    ul {
-      padding-left: 18px;
-      margin: 0;
-    }
+  .eyebrow::before{
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--coral);
+    box-shadow: 0 0 0 4px var(--coral-soft);
+  }
 
-    li {
-      margin-bottom: 8px;
-      line-height: 1.4;
-    }
+  .hero h1{
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    font-size: clamp(2.6rem, 11vw, 4.2rem);
+    line-height: 0.94;
+    letter-spacing: -0.01em;
+    margin: 10px 0 6px;
+    text-transform: uppercase;
+  }
 
-    .section2 { border-left-color: var(--c2); }
-    .section3 { border-left-color: var(--c3); }
-    .section4 { border-left-color: var(--c4); }
-    .section5 { border-left-color: var(--c5); }
+  .hero h1 small{
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 0.32em;
+    letter-spacing: 0.02em;
+    color: var(--muted);
+    text-transform: none;
+  }
 
-  </style>
+  .hero h1 .accent{ color: var(--coral); }
+
+  .lede{
+    max-width: 480px;
+    color: var(--muted);
+    font-size: 0.98rem;
+    line-height: 1.5;
+    margin: 0 0 22px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 10px 16px;
+    min-width: 92px;
+  }
+
+  .stat-num{
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: var(--ink);
+  }
+
+  .stat-label{
+    display: block;
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* ---------- TRACK / WEEKS ---------- */
+
+  main{
+    padding: 6px 20px 130px;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .track{ position: relative; }
+
+  .track::before{
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 14px;
+    bottom: 14px;
+    width: 2px;
+    background: var(--line);
+    z-index: 0;
+  }
+
+  .phase{
+    position: relative;
+    z-index: 1;
+    margin-bottom: 26px;
+  }
+
+  .phase-head{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .chevron{
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform 0.2s ease;
+  }
+
+  .phase.open .chevron{ transform: rotate(90deg); }
+
+  .days{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 62px;
+  }
+
+  .phase.open .days{ display: flex; }
+
+  .ring-wrap{
+    position: relative;
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    background: var(--bg);
+  }
+
+  .ring-wrap svg{ transform: rotate(-90deg); }
+
+  .ring-track{ fill: none; stroke: var(--line); stroke-width: 4; }
+
+  .ring-fill{
+    fill: none;
+    stroke: var(--mint);
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.45s ease;
+  }
+
+  .ring-label{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .phase-title{ flex: 1; }
+
+  .phase-eyebrow{
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.66rem;
+    font-weight: 600;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .phase-title h2{
+    font-size: 1.12rem;
+    font-weight: 700;
+    margin: 1px 0 0;
+    letter-spacing: -0.01em;
+  }
+
+  /* ---------- DAY GROUPS ---------- */
+
+  .days{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 62px;
+  }
+
+  .day{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .day-label{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .day-label .chevron{ width: 14px; height: 14px; }
+
+  .day .items{
+    display: none;
+    flex-direction: column;
+  }
+
+  .day.open .items{ display: flex; }
+
+  /* ---------- ITEM ROWS ---------- */
+
+  .item{
+    padding: 10px 14px;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease;
+  }
+
+  .item:hover{ background: #F7F9FB; }
+  .item:active{ transform: scale(0.997); }
+
+  .item.done{ background: var(--mint-soft); }
+
+  .item-row{
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .check-dot{
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 2px solid var(--line);
+    flex-shrink: 0;
+    margin-top: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .item.done .check-dot{ background: var(--mint); border-color: var(--mint); }
+
+  .check-dot svg{
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    transform: scale(0.6);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+  }
+
+  .item.done .check-dot svg{ opacity: 1; transform: scale(1); }
+
+  .real-checkbox{ position: absolute; opacity: 0; pointer-events: none; }
+
+  .item-label{ flex: 1; }
+
+  .meal-tag{
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+
+  .item:nth-of-type(1) .meal-tag{ color: var(--coral); }
+  .meal-tag.cena{ color: #7C8CF8; }
+
+  .meal-text{
+    font-size: 0.92rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .item + .item{ border-top: 1px solid var(--line); }
+
+  /* ---------- STATIC TIP CARDS ---------- */
+
+  .tip-card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-left: 5px solid var(--coral);
+    border-radius: 14px;
+    padding: 16px 18px;
+    margin-bottom: 14px;
+  }
+
+  .tip-card.mint{ border-left-color: var(--mint); }
+
+  .tip-card h3{
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .tip-card ul{ margin: 0; padding-left: 18px; }
+  .tip-card li{ font-size: 0.88rem; line-height: 1.5; margin-bottom: 4px; color: var(--ink); }
+
+  .disclaimer{
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+
+  .back-link{
+    display: block;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    margin-bottom: 4px;
+  }
+
+  .back-link:hover{
+    border-color: var(--coral);
+    background: var(--coral-soft);
+    color: var(--coral);
+  }
+
+  /* ---------- STICKY DOCK ---------- */
+
+  .dock{
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    background: var(--ink);
+    color: #fff;
+    padding: 14px 20px 18px;
+    z-index: 10;
+  }
+
+  .dock-inner{ max-width: 640px; margin: 0 auto; }
+
+  .dock-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 8px;
+  }
+
+  .dock-text{ font-size: 0.82rem; font-weight: 600; }
+
+  .dock-count{
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--coral);
+    font-weight: 600;
+  }
+
+  .dock-bar{
+    height: 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.14);
+    overflow: hidden;
+  }
+
+  .dock-fill{
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--coral), var(--mint));
+    border-radius: 999px;
+    transition: width 0.45s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .ring-fill, .dock-fill, .check-dot, .check-dot svg, .item{ transition: none !important; }
+  }
+
+  @media (min-width: 540px){
+    .hero{ padding: 52px 32px 32px; }
+    main{ padding: 6px 32px 130px; }
+  }
+</style>
 </head>
 
 <body>
 
-  <h1>🍽️ Plan de alimentación para perder barriga</h1>
-  <p class="subtitle">Guía adaptada a tu objetivo y estilo de vida</p>
+<header class="hero">
+  <span class="eyebrow">Plan de alimentación · 4 semanas</span>
+  <h1>Come<small>cada día, distinto · <span class="accent">menos barriga</span></small></h1>
+  <p class="lede">28 desayunos, 28 comidas y 28 cenas sin repetir, pensados para acompañar tu rutina: proteína magra en cada plato, verdura abundante e hidratos integrales con cabeza. Marca cada plato cuando lo prepares.</p>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num" id="totalCount">0/84</span>
+      <span class="stat-label">Comidas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Semanas</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1,5–2L</span>
+      <span class="stat-label">Agua / día</span>
+    </div>
+  </div>
+</header>
 
-  <section class="card section1">
-    <h2>🥣 Desayunos recomendados</h2>
+<main>
+  <div class="track" id="track"></div>
+
+  <section class="tip-card">
+    <h3>🔥 Consejos clave para perder barriga</h3>
     <ul>
-      <li>Avena con fruta y yogur</li>
-      <li>Tostada integral con aguacate y huevo</li>
-      <li>Yogur griego con frutos rojos y nueces</li>
+      <li>Proteína en cada comida principal (carne magra, pescado, huevo o legumbre): sacia más y ayuda a mantener músculo mientras pierdes grasa.</li>
+      <li>Verdura abundante en comida y cena — al menos la mitad del plato.</li>
+      <li>El hidrato integral (arroz, pasta, patata, quinoa) en ración moderada, no a discreción.</li>
+      <li>Evita bebidas azucaradas y reduce el alcohol entre semana: son calorías sin saciedad.</li>
+      <li>Aceite de oliva como grasa principal, con medida, no a chorro libre.</li>
+      <li>Duerme 7–8 horas — el descanso influye tanto como la comida en la grasa abdominal.</li>
     </ul>
   </section>
 
-  <section class="card section2">
-    <h2>🍽️ Comidas recomendadas</h2>
+  <section class="tip-card mint">
+    <h3>💧 Hidratación y snacks</h3>
     <ul>
-      <li>Pollo a la plancha con verduras</li>
-      <li>Arroz integral con salmón</li>
-      <li>Pasta integral con verduras y aceite de oliva</li>
+      <li>1,5–2 L de agua al día, repartida — más si entrenas con calor.</li>
+      <li>Si necesitas algo entre horas: fruta, un puñado de frutos secos o un yogur natural sin azúcar añadido.</li>
     </ul>
+    <p class="disclaimer">Esta es una guía general de alimentación saludable, no un plan clínico individualizado. Si quieres ajustar raciones a tu peso, actividad y evolución, un nutricionista te lo afinará mejor que cualquier plantilla.</p>
   </section>
 
-  <section class="card section3">
-    <h2>🌙 Cenas ligeras</h2>
-    <ul>
-      <li>Tortilla francesa con ensalada</li>
-      <li>Crema de verduras</li>
-      <li>Atún con tomate y aceite de oliva</li>
-    </ul>
-  </section>
+  <a href="index.html" class="back-link">
+    <span>← Volver al inicio</span>
+  </a>
+</main>
 
-  <section class="card section4">
-    <h2>🍏 Snacks saludables</h2>
-    <ul>
-      <li>Fruta</li>
-      <li>Frutos secos (un puñado)</li>
-      <li>Yogur natural</li>
-    </ul>
-  </section>
+<div class="dock">
+  <div class="dock-inner">
+    <div class="dock-top">
+      <span class="dock-text" id="dockText">Empieza cuando quieras</span>
+      <span class="dock-count" id="dockCount">0/56</span>
+    </div>
+    <div class="dock-bar"><div class="dock-fill" id="dockFill"></div></div>
+  </div>
+</div>
 
-  <section class="card section5">
-    <h2>💧 Hidratación</h2>
-    <ul>
-      <li>1,5–2 L de agua al día</li>
-    </ul>
-  </section>
+<script>
+  const RING_CIRCUMFERENCE = 2 * Math.PI * 20; // r = 20
 
-  <section class="card section1">
-    <h2>🔥 Consejos clave para perder barriga</h2>
-    <ul>
-      <li>Evitar bebidas azucaradas</li>
-      <li>Reducir alcohol entre semana</li>
-      <li>Priorizar proteína en cada comida</li>
-      <li>Dormir 7–8 horas</li>
-    </ul>
-  </section>
+  const desayunos = [
+    "Avena con plátano, canela y un puñado de nueces",
+    "Tostada integral con aguacate y huevo escalfado",
+    "Yogur natural con frutos rojos y semillas de chía",
+    "Huevos revueltos con espinacas y tostada integral",
+    "Tortilla de un huevo con champiñones y tomate",
+    "Yogur griego con manzana troceada y nueces",
+    "Tostada integral con tomate, aceite de oliva y jamón ibérico",
+    "Porridge de avena con leche, arándanos y un toque de miel",
+    "Huevo cocido con tostada integral y aguacate",
+    "Yogur natural con kiwi y copos de avena",
+    "Tortilla francesa con espinacas y queso fresco",
+    "Pan integral con hummus y tomate",
+    "Batido de leche, plátano y avena",
+    "Tostada de centeno con queso fresco y pavo",
+    "Yogur griego con plátano y canela",
+    "Huevos al plato con verduras salteadas",
+    "Avena nocturna con yogur, fresas y semillas de lino",
+    "Tostada integral con queso fresco y pepino",
+    "Tortilla de claras con espárragos",
+    "Yogur natural con melón y almendras",
+    "Pan integral con aguacate, huevo y pimienta",
+    "Bol de yogur, granola sin azúcar añadido y fruta de temporada",
+    "Tostada integral con salmón ahumado y queso fresco",
+    "Huevos revueltos con tomate y cebolla",
+    "Yogur griego con pera troceada y nueces",
+    "Tortilla de un huevo con jamón y pimiento",
+    "Avena con manzana asada y canela",
+    "Tostada integral con mantequilla de cacahuete y plátano"
+  ];
+
+  const comidas = [
+    "Pollo a la plancha con brócoli y boniato asado",
+    "Salmón al horno con quinoa y espárragos",
+    "Lentejas estofadas con verduras y un huevo duro",
+    "Pavo a la plancha con arroz integral y pimientos",
+    "Merluza al vapor con patata cocida y ensalada verde",
+    "Garbanzos salteados con espinacas y comino",
+    "Ternera magra a la plancha con calabacín y champiñones",
+    "Atún fresco a la plancha con ensalada de tomate y aguacate",
+    "Pollo al curry suave con arroz basmati y verduras",
+    "Bacalao al horno con pimientos asados y patata",
+    "Tortilla de claras con verduras y pan integral",
+    "Albóndigas de pavo en salsa de tomate con arroz integral",
+    "Ensalada completa de pollo, garbanzos, tomate y pepino",
+    "Salmón a la plancha con puré de coliflor",
+    "Pechuga de pollo rellena de espinacas con ensalada",
+    "Wok de gambas con verduras y fideos de arroz integral",
+    "Lomo de cerdo a la plancha con judías verdes y patata",
+    "Quinoa con pollo desmenuzado, maíz y pimiento",
+    "Dorada al horno con ensalada de tomate y cebolla",
+    "Pasta integral con atún, tomate natural y aceitunas",
+    "Pollo a la plancha con ensalada de quinoa y verduras",
+    "Caballa al horno con boniato asado",
+    "Estofado de ternera magra con verduras",
+    "Revuelto de huevo con champiñones y pan integral",
+    "Filete de pavo con arroz integral y brócoli",
+    "Merluza en salsa verde con patata cocida",
+    "Hamburguesa casera de pollo con ensalada y boniato",
+    "Pollo al horno con limón, espárragos y arroz integral"
+  ];
+
+  const cenas = [
+    "Tortilla francesa con espinacas y tomate",
+    "Crema de calabacín con un huevo duro",
+    "Salmón ahumado con aguacate y tomate",
+    "Sopa de verduras con pavo desmenuzado",
+    "Ensalada de atún con huevo y pimiento",
+    "Pollo a la plancha con ensalada verde",
+    "Crema de calabaza con semillas",
+    "Tortilla de claras con champiñones",
+    "Pescado blanco al vapor con verduras salteadas",
+    "Wrap integral de pavo y lechuga",
+    "Gazpacho con queso fresco",
+    "Revuelto de gambas con espárragos",
+    "Ensalada de garbanzos, tomate y atún",
+    "Merluza a la plancha con ensalada de pepino",
+    "Crema de puerro con pechuga de pollo",
+    "Tortilla de calabacín",
+    "Sopa de pescado y marisco ligera",
+    "Ensalada césar (sin pan frito) con pollo",
+    "Salmón al horno con espárragos",
+    "Crema de brócoli con un huevo poché",
+    "Tortilla de patata ligera (poco aceite) con ensalada",
+    "Pavo a la plancha con pimientos asados",
+    "Ensalada de quinoa con verduras y huevo",
+    "Lenguado a la plancha con ensalada",
+    "Sopa de miso con tofu y verduras",
+    "Tortilla francesa con champiñones y cebolla",
+    "Crema de zanahoria con jengibre",
+    "Pollo desmenuzado con ensalada de col"
+  ];
+
+  const track = document.getElementById('track');
+  const DAYS_PER_WEEK = 7;
+  const TOTAL_WEEKS = 4;
+
+  for (let week = 0; week < TOTAL_WEEKS; week++) {
+    const section = document.createElement('section');
+    section.className = 'phase';
+
+    const head = document.createElement('div');
+    head.className = 'phase-head';
+    head.onclick = function(){ section.classList.toggle('open'); };
+    head.innerHTML = `
+      <svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="ring-wrap">
+        <svg viewBox="0 0 48 48" width="48" height="48">
+          <circle class="ring-track" cx="24" cy="24" r="20" />
+          <circle class="ring-fill" cx="24" cy="24" r="20" stroke-dasharray="${RING_CIRCUMFERENCE.toFixed(1)}" stroke-dashoffset="${RING_CIRCUMFERENCE.toFixed(1)}" />
+        </svg>
+        <span class="ring-label">0/21</span>
+      </div>
+      <div class="phase-title">
+        <span class="phase-eyebrow">Semana ${week + 1}</span>
+        <h2>Días ${week * 7 + 1}–${week * 7 + 7}</h2>
+      </div>
+    `;
+    section.appendChild(head);
+    if (week === 0) section.classList.add('open');
+
+    const daysWrap = document.createElement('div');
+    daysWrap.className = 'days';
+
+    for (let d = 0; d < DAYS_PER_WEEK; d++) {
+      const dayIndex = week * 7 + d;
+      const dayCard = document.createElement('div');
+      dayCard.className = 'day';
+
+      const label = document.createElement('div');
+      label.className = 'day-label';
+      label.innerHTML = `<svg class="chevron" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Día ${dayIndex + 1}</span>`;
+      label.onclick = function(){ dayCard.classList.toggle('open'); };
+      dayCard.appendChild(label);
+
+      const itemsWrap = document.createElement('div');
+      itemsWrap.className = 'items';
+
+      itemsWrap.appendChild(buildItem('Desayuno', desayunos[dayIndex], 'desayuno'));
+      itemsWrap.appendChild(buildItem('Comida', comidas[dayIndex], ''));
+      itemsWrap.appendChild(buildItem('Cena', cenas[dayIndex], 'cena'));
+
+      dayCard.appendChild(itemsWrap);
+      daysWrap.appendChild(dayCard);
+    }
+
+    section.appendChild(daysWrap);
+    track.appendChild(section);
+  }
+
+  function buildItem(tag, text, tagClass){
+    const item = document.createElement('div');
+    item.className = 'item';
+    item.onclick = function(){ toggleItem(item); };
+    item.innerHTML = `
+      <div class="item-row">
+        <span class="check-dot"><svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        <input type="checkbox" class="real-checkbox" />
+        <div class="item-label">
+          <span class="meal-tag ${tagClass}">${tag}</span>
+          <span class="meal-text">${text}</span>
+        </div>
+      </div>
+    `;
+    return item;
+  }
+
+  function toggleItem(itemEl){
+    const checkbox = itemEl.querySelector('input[type="checkbox"]');
+    checkbox.checked = !checkbox.checked;
+    itemEl.classList.toggle('done', checkbox.checked);
+    updateProgress();
+  }
+
+  function updateProgress(){
+    let totalChecked = 0;
+    let totalAll = 0;
+
+    document.querySelectorAll('.phase').forEach(phase => {
+      const boxes = phase.querySelectorAll('input[type="checkbox"]');
+      const checked = phase.querySelectorAll('input[type="checkbox"]:checked').length;
+      totalChecked += checked;
+      totalAll += boxes.length;
+
+      const ringFill = phase.querySelector('.ring-fill');
+      const ringLabel = phase.querySelector('.ring-label');
+      const ratio = boxes.length ? checked / boxes.length : 0;
+      if (ringFill) ringFill.style.strokeDashoffset = RING_CIRCUMFERENCE * (1 - ratio);
+      if (ringLabel) ringLabel.textContent = checked + '/' + boxes.length;
+    });
+
+    document.getElementById('totalCount').textContent = totalChecked + '/' + totalAll;
+    document.getElementById('dockCount').textContent = totalChecked + '/' + totalAll;
+
+    const ratio = totalAll ? totalChecked / totalAll : 0;
+    document.getElementById('dockFill').style.width = (ratio * 100) + '%';
+
+    const dockText = document.getElementById('dockText');
+    if (totalAll > 0 && totalChecked === totalAll) {
+      dockText.textContent = '¡Plan completo! 🎉';
+    } else if (totalChecked === 0) {
+      dockText.textContent = 'Empieza cuando quieras';
+    } else {
+      dockText.textContent = 'Sigue así';
+    }
+  }
+
+  updateProgress();
+</script>
 
 </body>
 </html>
