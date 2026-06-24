@@ -67,6 +67,17 @@
     background: #f8fafc;
     margin-bottom: 10px;
     border: 1px solid #e2e8f0;
+    cursor: pointer;
+    user-select: none;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+
+  .item:hover {
+    background: #eef2f7;
+  }
+
+  .item:active {
+    background: #e2e8f0;
   }
 
   .item input {
@@ -74,6 +85,7 @@
     height: 20px;
     accent-color: #22c55e;
     cursor: pointer;
+    pointer-events: none; /* el clic lo gestiona el contenedor .item */
   }
 
   .item-label {
@@ -98,10 +110,16 @@
 </style>
 
 <script>
-  function toggleImage(checkbox, id) {
-    const img = document.getElementById(id);
-    if (!img) return;
-    img.style.display = checkbox.checked ? "block" : "none";
+  // Alterna el checkbox y la imagen al hacer clic en cualquier parte de la celda
+  function toggleItem(itemEl, imgId) {
+    const checkbox = itemEl.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+      checkbox.checked = !checkbox.checked;
+    }
+    const img = document.getElementById(imgId);
+    if (img) {
+      img.style.display = checkbox && checkbox.checked ? "block" : "none";
+    }
   }
 </script>
 </head>
@@ -118,8 +136,8 @@
 <section class="card">
   <h2>🔥 Calentamiento dinámico <span class="tag">2 min</span></h2>
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9769')" />
+  <div class="item" onclick="toggleItem(this, 'img-9769')">
+    <input type="checkbox" />
     <div class="item-label">
       Marcha rápida elevando rodillas
       <span class="time">30 s</span>
@@ -129,8 +147,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9791.png?raw=1"
        alt="Marcha rápida elevando rodillas" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9770')" />
+  <div class="item" onclick="toggleItem(this, 'img-9770')">
+    <input type="checkbox" />
     <div class="item-label">
       Círculos de brazos
       <span class="time">30 s</span>
@@ -140,8 +158,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9770.jpeg?raw=1"
        alt="Círculos de brazos" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9771')" />
+  <div class="item" onclick="toggleItem(this, 'img-9771')">
+    <input type="checkbox" />
     <div class="item-label">
       Torsiones de cintura
       <span class="time">30 s</span>
@@ -151,8 +169,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9771.jpeg?raw=1"
        alt="Torsiones de cintura" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9772')" />
+  <div class="item" onclick="toggleItem(this, 'img-9772')">
+    <input type="checkbox" />
     <div class="item-label">
       Saltitos suaves o paso lateral
       <span class="time">30 s</span>
@@ -167,8 +185,8 @@
 <section class="card">
   <h2>🫀 Cardio quema‑grasa <span class="tag">6 min</span></h2>
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9773')" />
+  <div class="item" onclick="toggleItem(this, 'img-9773')">
+    <input type="checkbox" />
     <div class="item-label">
       Jumping jacks (o paso lateral si quieres bajo impacto)
       <span class="time">40 s + 20 s descanso</span>
@@ -178,8 +196,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9789.jpeg?raw=1"
        alt="Jumping jacks" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9774')" />
+  <div class="item" onclick="toggleItem(this, 'img-9774')">
+    <input type="checkbox" />
     <div class="item-label">
       Rodillas arriba
       <span class="time">40 s + 20 s descanso</span>
@@ -189,8 +207,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9773.jpeg?raw=1"
        alt="Rodillas arriba" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9775')" />
+  <div class="item" onclick="toggleItem(this, 'img-9775')">
+    <input type="checkbox" />
     <div class="item-label">
       Paso atrás alterno (lunges suaves)
       <span class="time">40 s + 20 s descanso</span>
@@ -200,8 +218,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9774.jpeg?raw=1"
        alt="Paso atrás alterno" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9776')" />
+  <div class="item" onclick="toggleItem(this, 'img-9776')">
+    <input type="checkbox" />
     <div class="item-label">
       Trote en el sitio
       <span class="time">40 s + 20 s descanso</span>
@@ -211,8 +229,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9775.jpeg?raw=1"
        alt="Trote en el sitio" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9777')" />
+  <div class="item" onclick="toggleItem(this, 'img-9777')">
+    <input type="checkbox" />
     <div class="item-label">
       Saltos laterales
       <span class="time">40 s + 20 s descanso</span>
@@ -222,8 +240,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9776.jpeg?raw=1"
        alt="Saltos laterales" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9778')" />
+  <div class="item" onclick="toggleItem(this, 'img-9778')">
+    <input type="checkbox" />
     <div class="item-label">
       Rodillas al pecho lento (core + cardio)
       <span class="time">40 s + 20 s descanso</span>
@@ -238,8 +256,8 @@
 <section class="card">
   <h2>💪 Fuerza para acelerar el metabolismo <span class="tag">6 min</span></h2>
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9779')" />
+  <div class="item" onclick="toggleItem(this, 'img-9779')">
+    <input type="checkbox" />
     <div class="item-label">
       Sentadillas
       <span class="time">40 s + 20 s descanso</span>
@@ -249,8 +267,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9790.jpeg?raw=1"
        alt="Sentadillas" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9780')" />
+  <div class="item" onclick="toggleItem(this, 'img-9780')">
+    <input type="checkbox" />
     <div class="item-label">
       Puente de glúteo
       <span class="time">40 s + 20 s descanso</span>
@@ -260,8 +278,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9778.jpeg?raw=1"
        alt="Puente de glúteo" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9781')" />
+  <div class="item" onclick="toggleItem(this, 'img-9781')">
+    <input type="checkbox" />
     <div class="item-label">
       Flexiones apoyando rodillas
       <span class="time">40 s + 20 s descanso</span>
@@ -271,8 +289,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9779.jpeg?raw=1"
        alt="Flexiones apoyando rodillas" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9782')" />
+  <div class="item" onclick="toggleItem(this, 'img-9782')">
+    <input type="checkbox" />
     <div class="item-label">
       Peso muerto sin peso (inclinación de cadera)
       <span class="time">40 s + 20 s descanso</span>
@@ -282,8 +300,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9780.jpeg?raw=1"
        alt="Peso muerto sin peso" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9783')" />
+  <div class="item" onclick="toggleItem(this, 'img-9783')">
+    <input type="checkbox" />
     <div class="item-label">
       Zancadas alternas
       <span class="time">40 s + 20 s descanso</span>
@@ -293,8 +311,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9781.jpeg?raw=1"
        alt="Zancadas alternas" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9784')" />
+  <div class="item" onclick="toggleItem(this, 'img-9784')">
+    <input type="checkbox" />
     <div class="item-label">
       Superman (espalda baja)
       <span class="time">40 s + 20 s descanso</span>
@@ -309,8 +327,8 @@
 <section class="card">
   <h2>🔒 Core efectivo <span class="tag">4 min</span></h2>
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9785')" />
+  <div class="item" onclick="toggleItem(this, 'img-9785')">
+    <input type="checkbox" />
     <div class="item-label">
       Plancha
       <span class="time">30 s</span>
@@ -320,21 +338,21 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9783.jpeg?raw=1"
        alt="Plancha" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-9786')" />
+  <div class="item" onclick="toggleItem(this, 'img-9786')">
+    <input type="checkbox" />
     <div class="item-label">
       Plancha lateral derecha
       <span class="time">30 s</span>
     </div>
   </div>
   <img id="img-9786" class="exercise-img"
-       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1'
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1"
        alt="Plancha lateral derecha" />
 
   <!-- Para los ejercicios restantes de core y enfriamiento reutilizamos la última imagen (puedes cambiarla luego) -->
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra1')" />
+  <div class="item" onclick="toggleItem(this, 'img-core-extra1')">
+    <input type="checkbox" />
     <div class="item-label">
       Plancha lateral izquierda
       <span class="time">30 s</span>
@@ -344,8 +362,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg?raw=1"
        alt="Plancha lateral izquierda" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra2')" />
+  <div class="item" onclick="toggleItem(this, 'img-core-extra2')">
+    <input type="checkbox" />
     <div class="item-label">
       Dead bug
       <span class="time">30 s</span>
@@ -355,8 +373,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9785.jpeg?raw=1"
        alt="Dead bug" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra3')" />
+  <div class="item" onclick="toggleItem(this, 'img-core-extra3')">
+    <input type="checkbox" />
     <div class="item-label">
       Hollow hold (o crunch si es muy difícil)
       <span class="time">30 s</span>
@@ -366,8 +384,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9787.jpeg?raw=1"
        alt="Hollow hold" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra4')" />
+  <div class="item" onclick="toggleItem(this, 'img-core-extra4')">
+    <input type="checkbox" />
     <div class="item-label">
       Elevación de rodillas tumbada
       <span class="time">30 s</span>
@@ -382,8 +400,8 @@
 <section class="card">
   <h2>🧊 Enfriamiento <span class="tag">2 min</span></h2>
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-cool1')" />
+  <div class="item" onclick="toggleItem(this, 'img-cool1')">
+    <input type="checkbox" />
     <div class="item-label">
       Respiración profunda
     </div>
@@ -392,8 +410,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9793.jpeg?raw=1"
        alt="Respiración profunda" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-cool2')" />
+  <div class="item" onclick="toggleItem(this, 'img-cool2')">
+    <input type="checkbox" />
     <div class="item-label">
       Estiramiento de abdomen y espalda
     </div>
@@ -402,8 +420,8 @@
        src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9794.jpeg?raw=1"
        alt="Estiramiento de abdomen y espalda" />
 
-  <div class="item">
-    <input type="checkbox" onclick="toggleImage(this, 'img-cool3')" />
+  <div class="item" onclick="toggleItem(this, 'img-cool3')">
+    <input type="checkbox" />
     <div class="item-label">
       Estiramiento de piernas
     </div>
