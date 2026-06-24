@@ -394,6 +394,27 @@
     border-radius: 999px;
     transition: width 0.45s ease;
   }
+  
+  .back-link{
+    display: block;
+    text-align: center;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 14px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease;
+    margin-bottom: 4px;
+  }
+
+  .back-link:hover{
+    border-color: var(--coral);
+    background: var(--coral-soft);
+    color: var(--coral);
+  }
 
   @media (prefers-reduced-motion: reduce){
     .ring-fill, .img-wrap, .dock-fill, .check-dot, .check-dot svg, .item{
@@ -809,6 +830,11 @@
   </section>
 
 </div>
+<a href="index.html" class="back-link">
+    <span>← Volver al inicio</span>
+  </a>
+
+
 </main>
 
 <div class="dock">
