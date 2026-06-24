@@ -1,198 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Rutina para perder barriga</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Rutina completa con imágenes</title>
 
-  <style>
-    :root {
-      --bg: #f8fafc;
-      --text: #0f172a;
-      --muted: #64748b;
+<style>
+  body {
+    margin: 0;
+    padding: 20px;
+    background: #f8fafc;
+    font-family: system-ui, sans-serif;
+    color: #0f172a;
+  }
 
-      --c1: #3b82f6;
-      --c2: #ef4444;
-      --c3: #22c55e;
-      --c4: #a855f7;
-      --c5: #06b6d4;
-    }
+  h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+  }
 
-    body {
-      margin: 0;
-      padding: 20px;
-      background: var(--bg);
-      color: var(--text);
-      font-family: system-ui, sans-serif;
-    }
+  .subtitle {
+    color: #64748b;
+    margin-bottom: 16px;
+  }
 
-    h1 {
-      margin-bottom: 6px;
-      font-size: 1.8rem;
-    }
+  .pill {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-right: 8px;
+    border-radius: 999px;
+    background: white;
+    border: 1px solid #e2e8f0;
+    font-size: 0.8rem;
+    color: #64748b;
+  }
 
-    .subtitle {
-      color: var(--muted);
-      margin-bottom: 20px;
-    }
+  .card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 18px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
 
-    .pill {
-      display: inline-block;
-      padding: 6px 12px;
-      margin-right: 8px;
-      border-radius: 999px;
-      background: white;
-      border: 1px solid #e2e8f0;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
+  .card h2 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+  }
 
-    .card {
-      background: white;
-      border: 1px solid #e2e8f0;
-      padding: 18px;
-      border-radius: 16px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      border-left: 6px solid var(--c1);
-      animation: fadeIn .5s ease;
-    }
+  .tag {
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 999px;
+    background: #f1f5f9;
+    color: #64748b;
+    float: right;
+  }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+  .item {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    padding: 10px;
+    border-radius: 10px;
+    background: #f8fafc;
+    margin-bottom: 10px;
+    border: 1px solid #e2e8f0;
+  }
 
-    .card h2 {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin: 0 0 10px;
-      font-size: 1.2rem;
-    }
+  .item input {
+    width: 20px;
+    height: 20px;
+    accent-color: #22c55e;
+    cursor: pointer;
+  }
 
-    .tag {
-      font-size: 0.75rem;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #f1f5f9;
-      color: var(--muted);
-      margin-left: auto;
-    }
+  .item-label {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
 
-    .list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 10px;
-    }
+  .time {
+    display: block;
+    font-size: 0.75rem;
+    color: #64748b;
+  }
 
-    .item {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      background: #f8fafc;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-    }
+  .exercise-img {
+    display: none;
+    margin-top: 10px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 380px;
+    border: 1px solid #e2e8f0;
+  }
+</style>
 
-    .item input {
-      margin-top: 3px;
-      width: 18px;
-      height: 18px;
-      accent-color: #22c55e;
-    }
-
-    .item-label {
-      font-size: 0.9rem;
-      line-height: 1.3;
-    }
-
-    .time {
-      display: block;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    /* COLORES DE FICHAS */
-    .c1 { border-left-color: var(--c1); }
-    .c2 { border-left-color: var(--c2); }
-    .c3 { border-left-color: var(--c3); }
-    .c4 { border-left-color: var(--c4); }
-    .c5 { border-left-color: var(--c5); }
-
-  </style>
+<script>
+  function toggleImage(checkbox, id) {
+    const img = document.getElementById(id);
+    if (!img) return;
+    img.style.display = checkbox.checked ? "block" : "none";
+  }
+</script>
 </head>
 
 <body>
 
-  <h1>🎯 Rutina completa para perder barriga (15–20 min)</h1>
-  <p class="subtitle">Objetivo: bajar grasa general + tonificar</p>
+<h1>🎯 Rutina completa para perder barriga (15–20 min)</h1>
+<p class="subtitle">Objetivo: bajar grasa general (incluida la barriga) + tonificar</p>
 
-  <span class="pill">Frecuencia: 4–5 días</span>
-  <span class="pill">Material: ninguno</span>
+<span class="pill">Frecuencia: 4–5 días por semana</span>
+<span class="pill">Material: ninguno</span>
 
-  <!-- Calentamiento -->
-  <section class="card c1">
-    <h2>🔥 Calentamiento dinámico <span class="tag">2 min</span></h2>
-    <ul class="list">
-      <li class="item"><input type="checkbox"><div class="item-label">Marcha rápida elevando rodillas <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Círculos de brazos <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Torsiones de cintura <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Saltitos suaves o paso lateral <span class="time">30 s</span></div></li>
-    </ul>
-  </section>
+<!-- 1. CALENTAMIENTO -->
+<section class="card">
+  <h2>🔥 Calentamiento dinámico <span class="tag">2 min</span></h2>
 
-  <!-- Cardio -->
-  <section class="card c2">
-    <h2>🫀 Cardio quema‑grasa <span class="tag">6 min</span></h2>
-    <ul class="list">
-      <li class="item"><input type="checkbox"><div class="item-label">Jumping jacks <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Rodillas arriba <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Paso atrás alterno <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Trote en el sitio <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Saltos laterales <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Rodillas al pecho lento <span class="time">40 s + 20 s</span></div></li>
-    </ul>
-  </section>
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9769')" />
+    <div class="item-label">
+      Marcha rápida elevando rodillas
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9769" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9769.jpeg"
+       alt="Marcha rápida elevando rodillas" />
 
-  <!-- Fuerza -->
-  <section class="card c3">
-    <h2>💪 Fuerza para acelerar el metabolismo <span class="tag">6 min</span></h2>
-    <ul class="list">
-      <li class="item"><input type="checkbox"><div class="item-label">Sentadillas <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Puente de glúteo <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Flexiones con rodillas <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Peso muerto sin peso <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Zancadas alternas <span class="time">40 s + 20 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Superman <span class="time">40 s + 20 s</span></div></li>
-    </ul>
-  </section>
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9770')" />
+    <div class="item-label">
+      Círculos de brazos
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9770" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9770.jpeg"
+       alt="Círculos de brazos" />
 
-  <!-- Core -->
-  <section class="card c4">
-    <h2>🔒 Core efectivo <span class="tag">4 min</span></h2>
-    <ul class="list">
-      <li class="item"><input type="checkbox"><div class="item-label">Plancha <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Plancha lateral derecha <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Plancha lateral izquierda <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Dead bug <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Hollow hold <span class="time">30 s</span></div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Elevación de rodillas tumbada <span class="time">30 s</span></div></li>
-    </ul>
-  </section>
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9771')" />
+    <div class="item-label">
+      Torsiones de cintura
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9771" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9771.jpeg"
+       alt="Torsiones de cintura" />
 
-  <!-- Enfriamiento -->
-  <section class="card c5">
-    <h2>🧊 Enfriamiento <span class="tag">2 min</span></h2>
-    <ul class="list">
-      <li class="item"><input type="checkbox"><div class="item-label">Respiración profunda</div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Estiramiento de abdomen y espalda</div></li>
-      <li class="item"><input type="checkbox"><div class="item-label">Estiramiento de piernas</div></li>
-    </ul>
-  </section>
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9772')" />
+    <div class="item-label">
+      Saltitos suaves o paso lateral
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9772" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9772.jpeg"
+       alt="Saltitos suaves o paso lateral" />
+</section>
+
+<!-- 2. CARDIO -->
+<section class="card">
+  <h2>🫀 Cardio quema‑grasa <span class="tag">6 min</span></h2>
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9773')" />
+    <div class="item-label">
+      Jumping jacks (o paso lateral si quieres bajo impacto)
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9773" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9773.jpeg"
+       alt="Jumping jacks" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9774')" />
+    <div class="item-label">
+      Rodillas arriba
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9774" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9774.jpeg"
+       alt="Rodillas arriba" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9775')" />
+    <div class="item-label">
+      Paso atrás alterno (lunges suaves)
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9775" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9775.jpeg"
+       alt="Paso atrás alterno" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9776')" />
+    <div class="item-label">
+      Trote en el sitio
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9776" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9776.jpeg"
+       alt="Trote en el sitio" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9777')" />
+    <div class="item-label">
+      Saltos laterales
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9777" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9777.jpeg"
+       alt="Saltos laterales" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9778')" />
+    <div class="item-label">
+      Rodillas al pecho lento (core + cardio)
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9778" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9778.jpeg"
+       alt="Rodillas al pecho lento" />
+</section>
+
+<!-- 3. FUERZA -->
+<section class="card">
+  <h2>💪 Fuerza para acelerar el metabolismo <span class="tag">6 min</span></h2>
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9779')" />
+    <div class="item-label">
+      Sentadillas
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9779" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9779.jpeg"
+       alt="Sentadillas" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9780')" />
+    <div class="item-label">
+      Puente de glúteo
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9780" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9780.jpeg"
+       alt="Puente de glúteo" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9781')" />
+    <div class="item-label">
+      Flexiones apoyando rodillas
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9781" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9781.jpeg"
+       alt="Flexiones apoyando rodillas" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9782')" />
+    <div class="item-label">
+      Peso muerto sin peso (inclinación de cadera)
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9782" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9782.jpeg"
+       alt="Peso muerto sin peso" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9783')" />
+    <div class="item-label">
+      Zancadas alternas
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9783" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9783.jpeg"
+       alt="Zancadas alternas" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9784')" />
+    <div class="item-label">
+      Superman (espalda baja)
+      <span class="time">40 s + 20 s descanso</span>
+    </div>
+  </div>
+  <img id="img-9784" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9784.jpeg"
+       alt="Superman" />
+</section>
+
+<!-- 4. CORE -->
+<section class="card">
+  <h2>🔒 Core efectivo <span class="tag">4 min</span></h2>
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9785')" />
+    <div class="item-label">
+      Plancha
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9785" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9785.jpeg"
+       alt="Plancha" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-9786')" />
+    <div class="item-label">
+      Plancha lateral derecha
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-9786" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Plancha lateral derecha" />
+
+  <!-- Para los ejercicios restantes de core y enfriamiento reutilizamos la última imagen (puedes cambiarla luego) -->
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra1')" />
+    <div class="item-label">
+      Plancha lateral izquierda
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-core-extra1" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Plancha lateral izquierda" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra2')" />
+    <div class="item-label">
+      Dead bug
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-core-extra2" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Dead bug" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra3')" />
+    <div class="item-label">
+      Hollow hold (o crunch si es muy difícil)
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-core-extra3" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Hollow hold" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-core-extra4')" />
+    <div class="item-label">
+      Elevación de rodillas tumbada
+      <span class="time">30 s</span>
+    </div>
+  </div>
+  <img id="img-core-extra4" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Elevación de rodillas tumbada" />
+</section>
+
+<!-- 5. ENFRIAMIENTO -->
+<section class="card">
+  <h2>🧊 Enfriamiento <span class="tag">2 min</span></h2>
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-cool1')" />
+    <div class="item-label">
+      Respiración profunda
+    </div>
+  </div>
+  <img id="img-cool1" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Respiración profunda" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-cool2')" />
+    <div class="item-label">
+      Estiramiento de abdomen y espalda
+    </div>
+  </div>
+  <img id="img-cool2" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Estiramiento de abdomen y espalda" />
+
+  <div class="item">
+    <input type="checkbox" onclick="toggleImage(this, 'img-cool3')" />
+    <div class="item-label">
+      Estiramiento de piernas
+    </div>
+  </div>
+  <img id="img-cool3" class="exercise-img"
+       src="https://github.com/Ivideu/mi-plan-fitness/blob/main/IMG_9786.jpeg"
+       alt="Estiramiento de piernas" />
+</section>
 
 </body>
 </html>
