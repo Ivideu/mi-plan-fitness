@@ -1,1 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Calentamiento Portero Fútbol Sala</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 0;
+      background: #0b1726;
+      color: #f5f5f5;
+    }
 
+    header {
+      padding: 1.5rem;
+      text-align: center;
+      background: linear-gradient(135deg, #0b1726, #1f3b5b);
+      border-bottom: 2px solid #1f3b5b;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 0.95rem;
+      opacity: 0.85;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.5rem;
+    }
+
+    .intro {
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: #111c2b;
+      border-radius: 10px;
+      padding: 1rem;
+      border: 1px solid #24364f;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .card-time {
+      font-size: 0.85rem;
+      color: #9fb4d9;
+    }
+
+    .media {
+      width: 100%;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #24364f;
+      background: #0b1726;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 150px;
+      color: #9fb4d9;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 0.5rem;
+    }
+
+    .media img,
+    .media video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .card-steps {
+      font-size: 0.85rem;
+      margin: 0.3rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .card-steps li {
+      margin-bottom: 0.2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.8rem;
+      color: #9fb4d9;
+      border-top: 1px solid #1f3b5b;
+      margin-top: 1rem;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 0.15rem 0.5rem;
+      border-radius: 999px;
+      background: #24364f;
+      font-size: 0.75rem;
+      margin-top: 0.2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Calentamiento de Portero de Fútbol Sala</h1>
+    <p>Rutina previa al partido · Duración aproximada: 15 minutos</p>
+  </header>
+
+  <main>
+    <section class="intro">
+      <p>
+        Esta página muestra una propuesta de calentamiento específico para un portero de fútbol sala antes de un partido.
+        Cada tarjeta incluye una breve explicación, el tiempo recomendado y un espacio para insertar una imagen o vídeo
+        demostrativo. Puedes subir tus propios recursos y enlazarlos en cada bloque.
+      </p>
+    </section>
+
+    <section class="grid">
+      <!-- 1. Movilidad general (2 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">1. Movilidad general y articulaciones</div>
+          <div class="card-time">2 min</div>
+        </div>
+        <div class="tag">Calentamiento global</div>
+
+        <div class="media">
+          <!-- Sustituye por tu imagen o vídeo -->
+          <!-- Ejemplo imagen:
+          <img src="img/movilidad-general.jpg" alt="Movilidad general portero" />
+          -->
+          <!-- Ejemplo vídeo:
+          <video src="videos/movilidad-general.mp4" controls></video>
+          -->
+          <span>Inserta aquí una imagen o vídeo de movilidad articular (cuello, hombros, caderas, rodillas, tobillos).</span>
+        </div>
+
+        <p class="card-description">
+          Rotaciones suaves de cuello, hombros, codos, muñecas, caderas, rodillas y tobillos. El objetivo es activar
+          las articulaciones y preparar el cuerpo para movimientos rápidos.
+        </p>
+        <ul class="card-steps">
+          <li>Rotaciones de cuello y hombros.</li>
+          <li>Círculos con brazos y caderas.</li>
+          <li>Flexión y extensión de rodillas y tobillos.</li>
+        </ul>
+      </article>
+
+      <!-- 2. Carrera suave y cambios de ritmo (3 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">2. Carrera suave y cambios de ritmo</div>
+          <div class="card-time">3 min</div>
+        </div>
+        <div class="tag">Activación cardiovascular</div>
+
+        <div class="media">
+          <span>Inserta aquí una imagen o vídeo de carrera suave con cambios de ritmo en media pista.</span>
+        </div>
+
+        <p class="card-description">
+          Trote ligero alrededor de la pista con pequeños cambios de ritmo y dirección. Se busca elevar la frecuencia
+          cardíaca de forma progresiva.
+        </p>
+        <ul class="card-steps">
+          <li>Trote suave durante 1 minuto.</li>
+          <li>Incluye cambios de dirección y pequeños sprints.</li>
+          <li>Finaliza con desplazamientos laterales.</li>
+        </ul>
+      </article>
+
+      <!-- 3. Desplazamientos específicos de portero (3 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">3. Desplazamientos específicos de portero</div>
+          <div class="card-time">3 min</div>
+        </div>
+        <div class="tag">Trabajo de pies</div>
+
+        <div class="media">
+          <span>Inserta aquí una imagen o vídeo de desplazamientos laterales, salidas y retornos a portería.</span>
+        </div>
+
+        <p class="card-description">
+          Desplazamientos cortos y rápidos dentro del área: laterales, diagonales y salidas hacia balones imaginarios.
+          Se trabaja la coordinación y la posición básica de portero.
+        </p>
+        <ul class="card-steps">
+          <li>Desplazamientos laterales pegado a la línea de gol.</li>
+          <li>Salidas hacia delante simulando interceptar un balón.</li>
+          <li>Retorno rápido a la posición inicial.</li>
+        </ul>
+      </article>
+
+      <!-- 4. Bloqueos y caídas controladas (3 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">4. Bloqueos y caídas controladas</div>
+          <div class="card-time">3 min</div>
+        </div>
+        <div class="tag">Técnica de portero</div>
+
+        <div class="media">
+          <span>Inserta aquí una imagen o vídeo de blocajes bajos, medios y caídas laterales.</span>
+        </div>
+
+        <p class="card-description">
+          Práctica de blocajes con balón (o sin balón) y caídas laterales controladas para acostumbrar el cuerpo al
+          contacto con el suelo y mejorar la técnica.
+        </p>
+        <ul class="card-steps">
+          <li>Blocajes frontales a la altura del pecho.</li>
+          <li>Blocajes bajos con flexión de rodillas.</li>
+          <li>Caídas laterales suaves, alternando ambos lados.</li>
+        </ul>
+      </article>
+
+      <!-- 5. Disparos suaves y reacción (4 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">5. Disparos suaves y reacción</div>
+          <div class="card-time">4 min</div>
+        </div>
+        <div class="tag">Reflejos y toma de contacto</div>
+
+        <div class="media">
+          <span>Inserta aquí una imagen o vídeo de disparos suaves desde diferentes posiciones.</span>
+        </div>
+
+        <p class="card-description">
+          El portero recibe disparos suaves desde distintas posiciones (frontal, lateral, media distancia) para activar
+          reflejos, coordinación mano-ojo y sensaciones de partido.
+        </p>
+        <ul class="card-steps">
+          <li>Disparos frontales a media altura.</li>
+          <li>Disparos rasos a los lados de la portería.</li>
+          <li>Algún disparo alto para trabajar el salto y blocaje.</li>
+        </ul>
+      </article>
+
+      <!-- 6. Estiramientos breves y concentración (≈ 1 min) -->
+      <article class="card">
+        <div class="card-header">
+          <div class="card-title">6. Estiramientos breves y concentración</div>
+          <div class="card-time">1–2 min</div>
+        </div>
+        <div class="tag">Vuelta a la calma ligera</div>
+
+        <div class="media">
+          <span>Inserta aquí una imagen o vídeo de estiramientos dinámicos y respiración.</span>
+        </div>
+
+        <p class="card-description">
+          Estiramientos dinámicos suaves y respiraciones profundas para terminar el calentamiento, mantener la
+          activación sin perder movilidad y entrar concentrado al partido.
+        </p>
+        <ul class="card-steps">
+          <li>Estiramientos de cuádriceps, isquios y gemelos.</li>
+          <li>Estiramiento de hombros y espalda.</li>
+          <li>3–4 respiraciones profundas visualizando las primeras acciones del partido.</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    Página de ejemplo para GitHub · Personaliza imágenes, vídeos y tiempos según tu portero y tu equipo.
+  </footer>
+</body>
+</html>
