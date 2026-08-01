@@ -463,10 +463,19 @@
 
 <header class="hero">
   <span class="eyebrow">Plan de alimentación · 4 semanas</span>
-  <h1>Come<small>cada día, distinto · <span class="accent">menos barriga</span></small></h1>
-  <p class="lede">28 desayunos, 28 comidas y 28 cenas sin repetir, pensados para acompañar tu rutina: proteína magra en cada plato, verdura abundante e hidratos integrales con cabeza. Marca cada plato cuando lo prepares.</p>
-  <div class="stats">
-    <div class="stat">
+ <h1>Menos grasa
+<small>diabetes tipo 1 · <span class="accent">objetivo 80 kg</span></small></h1>
+<p class="lede">
+Plan de pérdida de grasa para diabetes tipo 1. Aproximadamente 100-140g de hidratos al día, alto en proteína y diseñado para acompañar 3-4 entrenamientos semanales, mejorar la composición corporal y reducir la carga sobre las rodillas.</p>  <div class="stats">
+  <span class="stat-num">2–3L</span>
+<span class="stat-label">Agua / día</span>  
+  <li>Objetivo de proteína: 150-160g diarios.</li>
+<li>Verduras en comida y cena todos los días.</li>
+<li>Los hidratos proceden principalmente de avena, pan integral, patata y boniato.</li>
+<li>Evita zumos, refrescos y alcohol.</li>
+<li>Controla glucemia antes y después del entrenamiento.</li>
+<li>Objetivo inicial: bajar de 88 kg a 80 kg.</li>
+  <div class="stat">
       <span class="stat-num" id="totalCount">0/84</span>
       <span class="stat-label">Comidas</span>
     </div>
@@ -524,97 +533,106 @@
   const RING_CIRCUMFERENCE = 2 * Math.PI * 20; // r = 20
 
   const desayunos = [
-    "Avena con plátano, canela y un puñado de nueces",
-    "Tostada integral con aguacate y huevo escalfado",
-    "Yogur natural con frutos rojos y semillas de chía",
-    "Huevos revueltos con espinacas y tostada integral",
-    "Tortilla de un huevo con champiñones y tomate",
-    "Yogur griego con manzana troceada y nueces",
-    "Tostada integral con tomate, aceite de oliva y jamón ibérico",
-    "Porridge de avena con leche, arándanos y un toque de miel",
-    "Huevo cocido con tostada integral y aguacate",
-    "Yogur natural con kiwi y copos de avena",
-    "Tortilla francesa con espinacas y queso fresco",
-    "Pan integral con hummus y tomate",
-    "Batido de leche, plátano y avena",
-    "Tostada de centeno con queso fresco y pavo",
-    "Yogur griego con plátano y canela",
-    "Huevos al plato con verduras salteadas",
-    "Avena nocturna con yogur, fresas y semillas de lino",
-    "Tostada integral con queso fresco y pepino",
-    "Tortilla de claras con espárragos",
-    "Yogur natural con melón y almendras",
-    "Pan integral con aguacate, huevo y pimienta",
-    "Bol de yogur, granola sin azúcar añadido y fruta de temporada",
-    "Tostada integral con salmón ahumado y queso fresco",
-    "Huevos revueltos con tomate y cebolla",
-    "Yogur griego con pera troceada y nueces",
-    "Tortilla de un huevo con jamón y pimiento",
-    "Avena con manzana asada y canela",
-    "Tostada integral con mantequilla de cacahuete y plátano"
-  ];
+"3 huevos + 80g pan integral 100% (35g HC)",
+"60g avena + 250g queso fresco batido 0% (40g HC)",
+"80g pan integral + pavo + tomate (35g HC)",
+"60g avena + yogur griego natural (40g HC)",
+"3 huevos + 80g pan integral (35g HC)",
+"60g avena + queso fresco batido (40g HC)",
+"80g pan integral + jamón cocido extra (35g HC)",
+
+"3 huevos + 80g pan integral 100% (35g HC)",
+"60g avena + 250g queso fresco batido 0% (40g HC)",
+"80g pan integral + pavo + tomate (35g HC)",
+"60g avena + yogur griego natural (40g HC)",
+"3 huevos + 80g pan integral (35g HC)",
+"60g avena + queso fresco batido (40g HC)",
+"80g pan integral + jamón cocido extra (35g HC)",
+
+"3 huevos + 80g pan integral 100% (35g HC)",
+"60g avena + 250g queso fresco batido 0% (40g HC)",
+"80g pan integral + pavo + tomate (35g HC)",
+"60g avena + yogur griego natural (40g HC)",
+"3 huevos + 80g pan integral (35g HC)",
+"60g avena + queso fresco batido (40g HC)",
+"80g pan integral + jamón cocido extra (35g HC)",
+
+"3 huevos + 80g pan integral 100% (35g HC)",
+"60g avena + 250g queso fresco batido 0% (40g HC)",
+"80g pan integral + pavo + tomate (35g HC)",
+"60g avena + yogur griego natural (40g HC)",
+"3 huevos + 80g pan integral (35g HC)",
+"60g avena + queso fresco batido (40g HC)",
+"80g pan integral + jamón cocido extra (35g HC)"
+];
 
   const comidas = [
-    "Pollo a la plancha con brócoli y boniato asado",
-    "Salmón al horno con quinoa y espárragos",
-    "Lentejas estofadas con verduras y un huevo duro",
-    "Pavo a la plancha con arroz integral y pimientos",
-    "Merluza al vapor con patata cocida y ensalada verde",
-    "Garbanzos salteados con espinacas y comino",
-    "Ternera magra a la plancha con calabacín y champiñones",
-    "Atún fresco a la plancha con ensalada de tomate y aguacate",
-    "Pollo al curry suave con arroz basmati y verduras",
-    "Bacalao al horno con pimientos asados y patata",
-    "Tortilla de claras con verduras y pan integral",
-    "Albóndigas de pavo en salsa de tomate con arroz integral",
-    "Ensalada completa de pollo, garbanzos, tomate y pepino",
-    "Salmón a la plancha con puré de coliflor",
-    "Pechuga de pollo rellena de espinacas con ensalada",
-    "Wok de gambas con verduras y fideos de arroz integral",
-    "Lomo de cerdo a la plancha con judías verdes y patata",
-    "Quinoa con pollo desmenuzado, maíz y pimiento",
-    "Dorada al horno con ensalada de tomate y cebolla",
-    "Pasta integral con atún, tomate natural y aceitunas",
-    "Pollo a la plancha con ensalada de quinoa y verduras",
-    "Caballa al horno con boniato asado",
-    "Estofado de ternera magra con verduras",
-    "Revuelto de huevo con champiñones y pan integral",
-    "Filete de pavo con arroz integral y brócoli",
-    "Merluza en salsa verde con patata cocida",
-    "Hamburguesa casera de pollo con ensalada y boniato",
-    "Pollo al horno con limón, espárragos y arroz integral"
-  ];
+"220g pollo + 300g boniato + ensalada (50g HC)",
+"220g pavo + 350g patata cocida (55g HC)",
+"220g ternera magra + verduras + 300g boniato (50g HC)",
+"250g merluza + 350g patata (55g HC)",
+"220g pollo + espárragos + 300g boniato (50g HC)",
+"250g salmón + verduras + 250g patata (40g HC)",
+"220g lomo magro + ensalada + 350g patata (55g HC)",
 
-  const cenas = [
-    "Tortilla francesa con espinacas y tomate",
-    "Crema de calabacín con un huevo duro",
-    "Salmón ahumado con aguacate y tomate",
-    "Sopa de verduras con pavo desmenuzado",
-    "Ensalada de atún con huevo y pimiento",
-    "Pollo a la plancha con ensalada verde",
-    "Crema de calabaza con semillas",
-    "Tortilla de claras con champiñones",
-    "Pescado blanco al vapor con verduras salteadas",
-    "Wrap integral de pavo y lechuga",
-    "Gazpacho con queso fresco",
-    "Revuelto de gambas con espárragos",
-    "Ensalada de garbanzos, tomate y atún",
-    "Merluza a la plancha con ensalada de pepino",
-    "Crema de puerro con pechuga de pollo",
-    "Tortilla de calabacín",
-    "Sopa de pescado y marisco ligera",
-    "Ensalada césar (sin pan frito) con pollo",
-    "Salmón al horno con espárragos",
-    "Crema de brócoli con un huevo poché",
-    "Tortilla de patata ligera (poco aceite) con ensalada",
-    "Pavo a la plancha con pimientos asados",
-    "Ensalada de quinoa con verduras y huevo",
-    "Lenguado a la plancha con ensalada",
-    "Sopa de miso con tofu y verduras",
-    "Tortilla francesa con champiñones y cebolla",
-    "Crema de zanahoria con jengibre",
-    "Pollo desmenuzado con ensalada de col"
-  ];
+"220g pollo + 300g boniato + ensalada (50g HC)",
+"220g pavo + 350g patata cocida (55g HC)",
+"220g ternera magra + verduras + 300g boniato (50g HC)",
+"250g merluza + 350g patata (55g HC)",
+"220g pollo + espárragos + 300g boniato (50g HC)",
+"250g salmón + verduras + 250g patata (40g HC)",
+"220g lomo magro + ensalada + 350g patata (55g HC)",
+
+"220g pollo + 300g boniato + ensalada (50g HC)",
+"220g pavo + 350g patata cocida (55g HC)",
+"220g ternera magra + verduras + 300g boniato (50g HC)",
+"250g merluza + 350g patata (55g HC)",
+"220g pollo + espárragos + 300g boniato (50g HC)",
+"250g salmón + verduras + 250g patata (40g HC)",
+"220g lomo magro + ensalada + 350g patata (55g HC)",
+
+"220g pollo + 300g boniato + ensalada (50g HC)",
+"220g pavo + 350g patata cocida (55g HC)",
+"220g ternera magra + verduras + 300g boniato (50g HC)",
+"250g merluza + 350g patata (55g HC)",
+"220g pollo + espárragos + 300g boniato (50g HC)",
+"250g salmón + verduras + 250g patata (40g HC)",
+"220g lomo magro + ensalada + 350g patata (55g HC)"
+];
+  
+ const cenas = [
+"250g merluza + brócoli + calabacín (10g HC)",
+"Tortilla 4 huevos + ensalada (10g HC)",
+"250g salmón + espárragos (10g HC)",
+"250g bacalao + verduras salteadas (10g HC)",
+"250g atún fresco + ensalada grande (10g HC)",
+"Tortilla francesa + verduras (10g HC)",
+"250g pescado blanco + ensalada (10g HC)",
+
+"250g merluza + brócoli + calabacín (10g HC)",
+"Tortilla 4 huevos + ensalada (10g HC)",
+"250g salmón + espárragos (10g HC)",
+"250g bacalao + verduras salteadas (10g HC)",
+"250g atún fresco + ensalada grande (10g HC)",
+"Tortilla francesa + verduras (10g HC)",
+"250g pescado blanco + ensalada (10g HC)",
+
+"250g merluza + brócoli + calabacín (10g HC)",
+"Tortilla 4 huevos + ensalada (10g HC)",
+"250g salmón + espárragos (10g HC)",
+"250g bacalao + verduras salteadas (10g HC)",
+"250g atún fresco + ensalada grande (10g HC)",
+"Tortilla francesa + verduras (10g HC)",
+"250g pescado blanco + ensalada (10g HC)",
+
+"250g merluza + brócoli + calabacín (10g HC)",
+"Tortilla 4 huevos + ensalada (10g HC)",
+"250g salmón + espárragos (10g HC)",
+"250g bacalao + verduras salteadas (10g HC)",
+"250g atún fresco + ensalada grande (10g HC)",
+"Tortilla francesa + verduras (10g HC)",
+"250g pescado blanco + ensalada (10g HC)"
+];
 
   const track = document.getElementById('track');
   const DAYS_PER_WEEK = 7;
